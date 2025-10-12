@@ -7,11 +7,19 @@
     width: 100%;
 }
 
+@media (max-width: 600px) {
+    .header-image {
+        max-height: 200px;
+        border-radius: 15px;
+    }
+}
+
+
 .profile-pic {
     position: absolute;
     bottom: 50px;
-    width: 175px;
-    height: 175px;
+    width: clamp(80px, 25%, 175px);
+    height: auto;
     border-radius: 50%;
     object-fit: cover;
     background-color: #fff;
@@ -34,6 +42,7 @@ body {
     align-items: center;
     margin: 0;
     padding: 20px;
+    overflow-x: hidden;
     min-height: 100vh;
     background: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
@@ -42,9 +51,21 @@ body {
 
 .center {
     text-align: center;
-    margin: auto;
-    padding: auto;
     width: 100%;
+    max-width: 800px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+md-divider {
+    width: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+.page-content p {
+    font-size: clamp(14px, 4vw, 18px);
 }
 
 .button-row {
@@ -54,9 +75,27 @@ body {
     margin-bottom: 2.5%;
 }
 
+@media (max-width: 500px) {
+    .button-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
 .page-content {
     margin-top: 2.5%;
     margin-bottom: 2.5%;
+}
+
+.page-content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin: 0 auto;
 }
 
 .icon {
@@ -74,7 +113,7 @@ table {
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px;
     background-color: var(--md-sys-color-primary-container);
 }
 
@@ -105,6 +144,25 @@ header {
     border-radius: 20px;
 }
 
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;  /* stack items vertically */
+        align-items: center;     /* center horizontally */
+        gap: 8px;                /* spacing between lines */
+        padding: 10px 5px;
+    }
+
+    .header-left, .header-right {
+        margin: 0;               /* remove auto margins */
+        display: flex;
+        flex-wrap: wrap;         /* wrap buttons if needed */
+        justify-content: center; /* center the buttons */
+        gap: 8px;
+        width: 100%;
+    }
+}
+
+
 .header-left {
     margin-right: auto;
     gap: 12px;
@@ -131,5 +189,14 @@ header {
 }
 
 .divider {
-    margin-bottom: 1.0%;
+    margin-bottom: 2.5%;
+}
+
+.subpage img {
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 10px auto;
 }

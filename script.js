@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     switchPage(btn)
                     break;
                 case "repo":
-                    location.href = "https://www.github.com/InioX/profile";
+                    location.href = "https://www.github.com/InioX/iniox.github.io";
                     break;
             }
         })
