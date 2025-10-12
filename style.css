@@ -93,7 +93,7 @@ md-divider {
     border-spacing: 0;
 }
 
-.table-wrapper {
+.table-div {
     overflow-x: auto;
     margin: 0 auto;
 }
@@ -114,7 +114,7 @@ table {
 
 th, td {
     padding: 10px;
-    background-color: var(--md-sys-color-primary-container);
+    background-color: var(--md-sys-color-secondary-container);
 }
 
 tr:first-child td:first-child {
@@ -146,17 +146,17 @@ header {
 
 @media (max-width: 600px) {
     header {
-        flex-direction: column;  /* stack items vertically */
-        align-items: center;     /* center horizontally */
-        gap: 8px;                /* spacing between lines */
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
         padding: 10px 5px;
     }
 
     .header-left, .header-right {
-        margin: 0;               /* remove auto margins */
+        margin: 0;
         display: flex;
-        flex-wrap: wrap;         /* wrap buttons if needed */
-        justify-content: center; /* center the buttons */
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 8px;
         width: 100%;
     }
