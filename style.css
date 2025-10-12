@@ -1,0 +1,135 @@
+:root {
+  color-scheme: dark;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+}
+
+.profile-pic {
+    position: absolute;
+    bottom: 50px;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px #0000004d;
+}
+
+.header-image {
+    height: 250px;
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    background: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-background);
+    font-family: 'Roboto', sans-serif;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+    padding: auto;
+    width: 100%;
+}
+
+.button-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 2.5%;
+}
+
+.page-content {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+}
+
+.icon {
+    height: 75px;
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: 20px;
+}
+
+th, td {
+    padding: 15px;
+    background-color: var(--md-sys-color-primary-container);
+}
+
+tr:first-child td:first-child {
+    border-top-left-radius: 20px;
+}
+
+tr:first-child td:last-child {
+    border-top-right-radius: 20px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+header {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    width: 100%; 
+    height: 100%;
+    background-color: var(--md-sys-color-surface-container);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.header-left {
+    margin-right: auto;
+    gap: 12px;
+}
+
+.header-right {
+    margin-left: auto;
+}
+
+.centered-list {
+    list-style-position: inside;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.arrow {
+    margin-bottom: 2.5%;
+}
+
+.welcome-text {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.divider {
+    margin-bottom: 1.0%;
+}
