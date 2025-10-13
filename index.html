@@ -246,33 +246,55 @@
 <template id="projectsPage" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/c3a43ca1-6235-4137-9856-cdd41a63a9ad" height="50" width="50">
     <h1>My Projects</h1>
+
+    <h2>Matugen</h2>
     <a href="https://www.github.com/InioX/matugen">
-        <md-text-button trailing-icon>
-            Matugen
+        <md-outlined-button trailing-icon>
+            Repo
             <svg slot="icon" viewBox="0 0 48 48"><path d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z"/></svg>
         </md-text-button>
     </a>
+
+    <p>
+        A Material You color generation tool built in Rust with its own templating engine, support for filters, importing data.
+        There is also a theme repository mentioned in the README that has a lot of apps supported in it.
+    </p>
+    
+    <h2>Dotfiles</h2>
         <a href="https://www.github.com/InioX/dotfiles">
-        <md-text-button trailing-icon>
-            Dotfiles
+        <md-outlined-button trailing-icon>
+            Repo
             <svg slot="icon" viewBox="0 0 48 48"><path d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z"/></svg>
         </md-text-button>
     </a>
-        <a href="https://www.github.com/InioX/iniox.github.io">
-        <md-text-button trailing-icon>
-            Website
+
+    <p>
+        My personal dotfiles for NixOS, Arch, Windows, and Android. Arch and Windows branches are not really maintained and just there as an archive.
+        The android version has its own script for automatically importing a backup into obtainium and installing all apps with it.
+        It uses adb commands to simulate touch. Might work but i switched to just doing it manually.
+    </p>
+    
+    <h2>Website</h2>
+    <a href="https://www.github.com/InioX/iniox.github.io">
+        <md-outlined-button trailing-icon>
+            Repo
             <svg slot="icon" viewBox="0 0 48 48"><path d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z"/></svg>
         </md-text-button>
     </a>
+
+    <p>
+        The current website you are looking at right now. It is in pure HTML, CSS and js.
+        <br>For the Material You theming it uses <a href="https://m3.material.io/develop/web">Material Design 3 for Web</a>.
+    </p>
 </template>
 
 <template id="otherPage" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/f42d0cce-ba58-4ccf-b008-7dc0434d88e4" height="50" width="50">
     <h1>Other</h1>
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=InioX&theme=github_dark">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=InioX&theme=github_dark">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=InioX&theme=github_dark&utcOffset=2">
-    <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=InioX&theme=github_dark">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=InioX&theme=github_dark" width="300px">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=InioX&theme=github_dark" width="300px">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=InioX&theme=github_dark&utcOffset=2" width="300px">
+    <img src="http://github-profile-summary-cards.vercel.app/api/cards/stats?username=InioX&theme=github_dark" width="300px">
 </template>
 
 <template id="contactPage" class="subpage">
