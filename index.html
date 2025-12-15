@@ -13,85 +13,695 @@
     <link rel="stylesheet" href="style.css">
     <script type="module" src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<header>
-    <div class="header-left">
-        <a href="https://www.github.com/InioX/">
-            <md-filled-tonal-button id="profileButton">
-                <svg slot="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                </svg>
-                Profile
-            </md-filled-tonal-button>
-        </a>
-        <md-filled-tonal-button id="contactButton" data-page="contact">
-            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-                <path
-                    d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" />
-            </svg>
-            Contact
-        </md-filled-tonal-button>
-    </div>
 
-    <div class="header-right">
-        <a href="https://www.github.com/InioX/iniox.github.io">
-            <md-text-button trailing-icon>
-                Open Repo
-                <svg slot="icon" viewBox="0 0 48 48">
-                    <path
-                        d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
-                </svg>
-            </md-text-button>
-        </a>
-    </div>
-</header>
+    <!-- Syntax highlight -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        Prism.plugins.autoloader.languages_path =
+            "https://cdn.jsdelivr.net/npm/prismjs/components/"; 
+    </script>
+</head>
+
+<md-tabs id="headerTabs" class="header-tabs">
+    <md-primary-tab active>
+        <md-icon slot="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#e3e3e3">
+                <path
+                    d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-7-.5-14.5T799-507q-5 29-27 48t-52 19h-80q-33 0-56.5-23.5T560-520v-40H400v-80q0-33 23.5-56.5T480-720h40q0-23 12.5-40.5T563-789q-20-5-40.5-8t-42.5-3q-134 0-227 93t-93 227h200q66 0 113 47t47 113v40H400v110q20 5 39.5 7.5T480-160Z" />
+            </svg></md-icon>
+        Site
+    </md-primary-tab>
+    <md-primary-tab>
+        <md-icon slot="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                fill="#e3e3e3">
+                <path
+                    d="M320-440h320v-80H320v80Zm0 120h320v-80H320v80Zm0 120h200v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z" />
+            </svg></md-icon>
+        Docs
+    </md-primary-tab>
+</md-tabs>
 
 <body>
-    <md-divider class="divider"></md-divider>
+    <div id="bodyDiv" class="body-div"></div>
+</body>
+
+<footer>
+    <br>
+    <md-filled-tonal-button id="to-top">
+        Back to top
+        <svg slot="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+            fill="#e3e3e3">
+            <path
+                d="M440-320h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168Zm40 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+        </svg>
+    </md-filled-tonal-button>
+</footer>
+
+<template id="site">
+    <div class="header">
+        <div class="header-left">
+            <a href="https://www.github.com/InioX/">
+                <md-filled-tonal-button id="profileButton">
+                    <svg slot="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                    Profile
+                </md-filled-tonal-button>
+            </a>
+            <md-filled-tonal-button id="contactButton" data-page="contact">
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px"
+                    fill="#e3e3e3">
+                    <path
+                        d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" />
+                </svg>
+                Contact
+            </md-filled-tonal-button>
+        </div>
+
+        <div class="header-right">
+            <a href="https://www.github.com/InioX/iniox.github.io">
+                <md-text-button trailing-icon>
+                    Open Repo
+                    <svg slot="icon" viewBox="0 0 48 48">
+                        <path
+                            d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                    </svg>
+                </md-text-button>
+            </a>
+        </div>
+    </div>
 
     <div class="center">
 
         <div class="banner">
-            <img id="themeImage" class="header-image" src="nature.jpg" alt="Banner">
+            <img id="themeImage" class="header-image" src="green.gif" alt="Banner">
             <img class="profile-pic" src="pfp.jpg" alt="Profile">
         </div>
 
         <h1 id="pageTitle" class="md-typescale-display-medium welcome-text">Welcome to my site!</h1>
         <p>You can read more about me and my projects below</p>
 
-        <div class="button-row">
-            <md-outlined-button data-page="about">About me</md-outlined-button>
-            <md-filled-button data-page="projects">My projects</md-filled-button>
-            <md-outlined-button data-page="other">Other</md-outlined-button>
+        <div class="button-row" data-anchor="about projects other">
+            <md-outlined-button data-hash="#site/about" data-page="about" data-button="about">About
+                me</md-outlined-button>
+            <md-filled-button data-hash="#site/projects" data-page="projects" data-button="projects">My
+                projects</md-filled-button>
+            <md-outlined-button data-hash="#site/other" data-page="other" data-button="other">Other</md-outlined-button>
         </div>
 
-        <svg id="headerArrow" class="arrow" style="visibility: hidden;" xmlns="http://www.w3.org/2000/svg" height="24px"
-            viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-            <path d="M480-360 280-560h400L480-360Z" />
-        </svg>
         <md-divider id="headerDivider" style="visibility: hidden;"></md-divider>
 
         <div id="pageContent" class="page-content"></div>
     </div>
 
     <md-divider></md-divider>
-</body>
+</template>
 
-<footer>
-    <a href="#">
+<template id="docs">
+
+    <div class="header">
+        <div class="header-left">
+            <a href="https://www.github.com/InioX/">
+                <md-filled-tonal-button id="profileButton">
+                    <svg slot="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                    Profile
+                </md-filled-tonal-button>
+            </a>
+            <md-filled-tonal-button id="contactButton" data-page="contact">
+                <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px"
+                    fill="#e3e3e3">
+                    <path
+                        d="M234-276q51-39 114-61.5T480-360q69 0 132 22.5T726-276q35-41 54.5-93T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 59 19.5 111t54.5 93Zm246-164q-59 0-99.5-40.5T340-580q0-59 40.5-99.5T480-720q59 0 99.5 40.5T620-580q0 59-40.5 99.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q53 0 100-15.5t86-44.5q-39-29-86-44.5T480-280q-53 0-100 15.5T294-220q39 29 86 44.5T480-160Zm0-360q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm0-60Zm0 360Z" />
+                </svg>
+                Contact
+            </md-filled-tonal-button>
+        </div>
+
+        <div class="header-right">
+            <a href="https://www.github.com/InioX/iniox.github.io">
+                <md-text-button trailing-icon>
+                    Open Repo
+                    <svg slot="icon" viewBox="0 0 48 48">
+                        <path
+                            d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                    </svg>
+                </md-text-button>
+            </a>
+        </div>
+    </div>
+
+    <div class="center">
+        <div class="banner">
+            <img id="themeImage" class="header-image" src="purple.gif" alt="Banner">
+        </div>
+
+        <h1 id="pageTitle" class="md-typescale-display-medium welcome-text">Welcome to the documentation!</h1>
+        <p>You can read more about the projects below</p>
+
+        <div class="button-row" data-anchor="matugen">
+            <md-outlined-button data-page="matugen" data-button="matugen"
+                data-hash="#matugen">Matugen</md-outlined-button>
+        </div>
+
+        <md-divider id="headerDivider" style="visibility: hidden;"></md-divider>
+
+        <div id="pageContent" class="page-content"></div>
+    </div>
+
+    <md-divider></md-divider>
+</template>
+
+<template id="matugen">
+    <div class="header">
+        <div class="header-left">
+            <a data-hash="#docs">
+                <md-filled-tonal-button id="backDocsButton" data-page="docs">
+                    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px"
+                        fill="#e3e3e3">
+                        <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z" />
+                    </svg>
+                    Back
+                </md-filled-tonal-button>
+            </a>
+        </div>
+
+        <div class="header-right">
+            <a href="https://www.github.com/InioX/iniox.github.io">
+                <md-text-button trailing-icon>
+                    Open Repo
+                    <svg slot="icon" viewBox="0 0 48 48">
+                        <path
+                            d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                    </svg>
+                </md-text-button>
+            </a>
+        </div>
+    </div>
+
+    <div class="center">
+        <div class="banner">
+            <img id="themeImage" class="header-image" src="matugen.png" alt="Banner">
+        </div>
+
+        <h1>Matugen</h1>
+
+        <div class="button-row" data-anchor="templates usage installation configuration features filters">
+            <md-outlined-button data-hash="#matugen/templates" data-page="templates"
+                data-button="templates">Templates</md-outlined-button>
+            <md-outlined-button data-hash="#matugen/usage" data-page="usage"
+                data-button="usage">Usage</md-outlined-button>
+            <md-filled-button data-hash="#matugen/installation" data-page="installation"
+                data-button="installation">Installation</md-filled-button>
+            <md-outlined-button data-hash="#matugen/configuration" data-page="configuration"
+                data-button="configuration">Configuration</md-outlined-button>
+            <md-outlined-button data-hash="#matugen/features" data-page="features"
+                data-button="features">Features</md-outlined-button>
+            <md-outlined-button data-hash="#matugen/filters" data-page="filters"
+                data-button="filters">Filters</md-outlined-button>
+        </div>
+
+        <md-divider id="headerDivider" style="visibility: hidden;"></md-divider>
+
+        <div id="pageContent" class="page-content"></div>
+    </div>
+</template>
+
+
+<template id="usage" class="subpage">
+    <div class="doc-page">
+        <h1>Usage</h1>
+
+        <h3>Using the help command to list all other arguments</h3>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen -h</code></pre>
+        </md-card>
+
+        <h3>JSON output flag</h3>
+        <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated JSON.</p>
+        <md-card class="code-card">
+            <pre
+                class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; --json &lt;FORMAT&gt</code></pre>
+        </md-card>
+
+        <p><strong>Example:</strong></p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+        </md-card>
+
         <br>
-        <md-filled-tonal-button>
-            Back to top
-            <svg slot="icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                fill="#e3e3e3">
-                <path
-                    d="M440-320h80v-168l64 64 56-56-160-160-160 160 56 56 64-64v168Zm40 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
-            </svg>
-        </md-filled-tonal-button></a>
-</footer>
+        <md-divider></md-divider>
 
-<template id="aboutPage" class="subpage">
+        <h2>Importing JSON</h2>
+
+        <p>You can also automatically import JSON files from the config. See the <code>[config.import_json_files]</code>
+            option.</p>
+        <a href="https://github.com/InioX/matugen/blob/main/example/config.toml">
+            <md-filled-button trailing-icon>
+                Check the configuration file here
+                <svg slot="icon" viewBox="0 0 48 48">
+                    <path
+                        d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                </svg>
+            </md-filled-button>
+        </a>
+
+        <h4>Order of importing JSON</h4>
+        <p>The order is from first to last imported, the later ones will overwrite data</p>
+        <ol>
+            <li><code>--import-json</code></li>
+            <li><code>--import-json-string</code></li>
+            <li><code>[config.import_json_files]</code></li>
+        </ol>
+
+
+        <h3>Import JSON from file</h3>
+        <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated json.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+        </md-card>
+
+        <p><strong>Example:</strong></p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+        </md-card>
+
+        <h3>Import JSON from string</h3>
+        <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated json.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+        </md-card>
+
+        <p><strong>Example:</strong></p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+        </md-card>
+
+        <br>
+        <md-divider></md-divider>
+        <br>
+
+        <h3>Changing the mode to dark or light</h3>
+        <p>If no mode is provided, the default is dark.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+        </md-card>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m dark</code></pre>
+        </md-card>
+
+
+        <h3>Generate from a color</h3>
+        <p>Use <code>matugen -h</code> to see all the available formats you can use.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash"># Dark mode
+matugen color hsl &lt;hsl color&gt; -m "dark"
+# Light mode
+matugen color hex &lt;hex color&gt; -m "light"</code></pre>
+        </md-card>
+
+        <h3>Generate from an image</h3>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen image /path/to/wallpaper/</code></pre>
+        </md-card>
+
+    </div>
+
+</template>
+
+<template id="configuration" class="subpage">
+    <div class="doc-page">
+        <h1>Configuration</h1>
+
+        <h3>Config file locations</h3>
+
+        <p>You can use a custom configuration path by using the <code>-c</code> argument</p>
+
+        <h2>Basic Syntax</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Windows</td>
+                        <td><code>C:\Users\user\AppData\Roaming\InioX\matugen\config\config.toml</code></td>
+
+                    </tr>
+                    <tr>
+                        <td>Linux/Unix</td>
+                        <td><code>/home/user/.config/matugen/config.toml</code></td>
+                    </tr>
+                    <tr>
+                        <td>MacOS</td>
+                        <td><code>/Users/user/Library/Application Support/com.InioX.matugen/config.toml</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Example Configuration</h3>
+
+        <p>The example <code>config.toml</code> file has comments for every option in the config.</p>
+
+        <a href="https://github.com/InioX/matugen/blob/main/example/config.toml">
+            <md-filled-button trailing-icon>
+                Check the example configuration here
+                <svg slot="icon" viewBox="0 0 48 48">
+                    <path
+                        d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                </svg>
+            </md-filled-button>
+        </a>
+
+        <h3 id="adding-templates">Adding templates</h3>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-toml"># config_directory/config.toml
+
+[templates.test] # First way of adding template
+input_path = '~/.config/example/template.css'
+output_path = '~/.config/example'
+
+[templates] # Another way
+test2 = { input_path = '~/.config/example/template2.css', output_path = '~/.config/example2' }
+</code></pre>
+        </md-card>
+
+        <h3>Template hooks</h3>
+
+        <ul>
+            <li><code>pre_hook</code>: Executes a command inside the string <strong>BEFORE</strong> the template is
+                generated</li>
+            <li><code>post_hook</code>: Executes a command inside the string <strong>AFTER</strong> the template is
+                generated</li>
+        </ul>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-toml">[templates.test]
+# input_path = "some/path"
+# output_path = "some/path"
+pre_hook = 'echo "hello world"'
+post_hook = "cat /some/file.txt"</code></pre>
+        </md-card>
+    </div>
+</template>
+
+<template id="features" class="subpage">
+    <div class="doc-page">
+        <h1>Features</h1>
+
+        <p>For more information about features click the button below.</p>
+        <a href="https://github.com/InioX/matugen/blob/main/Cargo.toml">
+            <md-filled-button trailing-icon>
+                Check the Cargo.toml file here
+                <svg slot="icon" viewBox="0 0 48 48">
+                    <path
+                        d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                </svg>
+            </md-filled-button>
+        </a>
+
+        <h3>Default features</h3>
+        <p>Matugen gets compiled with these features by default:</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>dump-json</code></td>
+                        <td>✅</td>
+                        <td>The ability to use the <code>--dump-json</code> flag.</td>
+                    </tr>
+                    <tr>
+                        <td><code>web-image</code></td>
+                        <td>❌</td>
+                        <td>The ability to use the <code>matugen web-image</code> subcommand.</td>
+                    </tr>
+                    <tr>
+                        <td><code>update-informer</code></td>
+                        <td>❌</td>
+                        <td>Will notify the user if there is an update available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Compiling with specific features</h3>
+        <md-card class="code-card">
+            <pre
+                class="code-block"><code class="language-bash">cargo build --features "&lt;features seperated by space&gt;"</code></pre>
+        </md-card>
+
+        <h3>Compiling with all features</h3>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">cargo build --all-features</code></pre>
+        </md-card>
+    </div>
+</template>
+
+<template id="installation" class="subpage">
+    <div class="doc-page">
+        <h1>Installation</h1>
+
+        <h3>Cargo</h3>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">cargo install matugen</code></pre>
+        </md-card>
+
+        <h3>AUR</h3>
+        <p>Replace yay with your favorite AUR helper</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">yay -S matugen-bin</code></pre>
+        </md-card>
+
+        <h3>NetBsd</h3>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">pkgin install matugen</code></pre>
+        </md-card>
+
+        <p>Or if you prefer building from source:</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">cd /usr/pkgsrc/graphics/matugen
+make install</code></pre>
+        </md-card>
+
+        <h3>NixOS</h3>
+        <p>Add matugen to your flake inputs</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">inputs = {
+  matugen = {
+    url = "github:/InioX/Matugen";
+    # If you need a specific version:
+    ref = "refs/tags/matugen-v0.10.0";
+  };
+  # ...
+};</code></pre>
+        </md-card>
+
+        <p>Then you can add it to your packages</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">let
+  system = "x86_64-linux";
+in {
+  environment.systemPackages = with pkgs; [    
+    # ...
+    inputs.matugen.packages.${system}.default
+  ];
+}</code></pre>
+        </md-card>
+
+        <p>This flake also provides a NixOS/Home Manager module, which can be imported by adding this in your
+            configuration</p>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{pkgs, inputs, ...}: {
+  imports = [
+    inputs.matugen.nixosModules.default
+  ];
+
+  # ...
+}</code></pre>
+        </md-card>
+
+        <p>The module does NOT automatically symlink the files. For an example of using this module with Home Manager,
+            see <a href="https://github.com/InioX/matugen/issues/28">
+                this issue comment
+            </a>.<br>Option details can be found by reading the <a
+                href="https://github.com/InioX/matugen/blob/main/module.nix">module</a>.</p>
+    </div>
+</template>
+
+<template id="templates" class="subpage">
+    <div class="doc-page">
+        <h1>Templates</h1>
+
+        <h2>Basic Syntax</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Syntax</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Expression</strong> (Keyword)</td>
+                        <td><code>{{ expression }}</code></td>
+                        <td>Evaluates and outputs a value.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Block</strong></td>
+                        <td><code>&lt;* ... *&gt;</code></td>
+                        <td>Used for loops, conditionals and includes.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Escaping</strong></td>
+                        <td><code>\{{ ... }}</code></td>
+                        <td>Escapes template output so it isn’t evaluated.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <h2>Expressions</h2>
+        <p>Use <strong>dot notation</strong> to access nested values inside context objects.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{{ colors.primary.default.hex }}
+{{ palettes.error._99.hex }}
+{{ mode }}</code></pre>
+        </md-card>
+
+        <p><strong>Example:</strong></p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{{ custom.red_color.hex }} -> #ff0000
+{{ custom.red_color.rgb }} -> rgb(255, 0, 0)</code></pre>
+        </md-card>
+
+
+        <h2>Includes</h2>
+
+        <p>Includes another template file, the name should be the template name you put in the config.</p>
+        <p>If you just want to use the included template inside of another one and don&#39;t want to write
+            it to a file,
+            you can just comment out the <code>output_path</code></p>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-toml">[templates.includeme]
+input_path = "./include.txt"
+# The output path is optional if you just want to import the template
+# output_path = "./a/include.txt"
+</code></pre>
+        </md-card>
+
+        <p><strong>Example:</strong></p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">&lt;* include "includeme" *&gt;</code></pre>
+        </md-card>
+
+
+
+        <h2>Conditionals</h2>
+        <p>Conditionals allow branching logic inside templates.</p>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">&lt;* if {{ condition }} *&gt;
+  ...content if true...
+&lt;* else *&gt;
+  ...content if false...
+&lt;* endif *&gt;</code></pre>
+        </md-card>
+
+        <p><strong>Example:</strong></p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">&lt;* if {{ is_dark_mode }} *&gt;
+  Dark Mode
+&lt;* else *&gt;
+  Light Mode
+&lt;* endif *&gt;</code></pre>
+        </md-card>
+
+        <h2>Loops</h3>
+            <h3 id="range-loop">Range Loop</h3>
+            <p>Iterates over a numeric range (inclusive).</p>
+
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">&lt;* for i in -10..10 *&gt;
+  {{ i }}
+&lt;* endfor *&gt;</code></pre>
+            </md-card>
+
+            <h3>Key-Value Loop</h3>
+            <p>Iterates through maps or objects, exposing both key and value bindings.</p>
+
+            <h4>Listing all the MD3 colors</h4>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">&lt;* for name, value in colors *&gt;
+  {{ name }}: {{ value.default.hex }};
+&lt;* endfor *&gt;</code></pre>
+            </md-card>
+
+            <h3>Filters</h3>
+            <p>Filters transform or modify values, they are chained using the pipe symbol
+                (<code>|</code>).
+                They can support Expressions as arguments.</p>
+            <p><strong>Example:</strong></p>
+
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ colors.primary.default.hex | lighten: 20.0 | invert }}
+
+&lt;* for i in -10..10 *&gt;
+    actual: {{ i }} multiplied: {{ {{ i }} * 10 }} {{ colors.red.default.hex | lighten: {{i}} * 10 }}
+&lt;* endfor *&gt;</code></pre>
+            </md-card>
+
+            <h3>Arithmetic and Nested Expressions</h3>
+            <p>Expressions can be nested or contain arithmetic operations.</p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ {{ i }} * 10 }}
+{{ colors.red.default.hex | lighten: {{ i }} * 10 }}</code></pre>
+            </md-card>
+
+            <h3>Escaping Output</h3>
+            <p>To render raw <code>{{ ... }}</code> text without evaluating it:</p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">\{{ colors.primary.default.hex }}</code></pre>
+            </md-card>
+            <p>This will output literally <code>{{ colors.primary.default.hex }}</code> in
+                the result.</p>
+
+
+    </div>
+</template>
+
+<template id="filters" class="subpage">
+    <div class="doc-page">
+        <h1>Filters</h1>
+
+        <p>TODO</p>
+    </div>
+</template>
+
+<template id="about" class="subpage">
 
     <img src="https://github.com/InioX/InioX/assets/81521595/f42d0cce-ba58-4ccf-b008-7dc0434d88e4" height="50"
         width="50">
@@ -117,7 +727,7 @@
 
     <h2>My languages and tools</h4>
 
-        <div class="table-div">
+        <div class="table-wrapper">
             <table>
                 <tr>
                     <td>
@@ -148,6 +758,8 @@
                             </md-text-button>
                         </a>
                     </td>
+                </tr>
+                <tr>
                     <td>
                         <svg class="icon" viewBox="0 0 160 200">
                             <image xlink:href="https://cdn.simpleicons.org/typescript/white" />
@@ -162,8 +774,6 @@
                             </md-text-button>
                         </a>
                     </td>
-                </tr>
-                <tr>
                     <td>
                         <svg class="icon" viewBox="0 0 160 200">
                             <image xlink:href="https://cdn.simpleicons.org/mongodb/white" />
@@ -178,6 +788,8 @@
                             </md-text-button>
                         </a>
                     </td>
+                </tr>
+                <tr>
                     <td>
                         <svg class="icon" viewBox="0 0 160 200">
                             <image xlink:href="https://cdn.simpleicons.org/python/white" />
@@ -236,20 +848,6 @@
                             </md-text-button>
                         </a>
                     </td>
-                    <td>
-                        <svg class="icon" viewBox="0 0 160 200">
-                            <image xlink:href="https://cdn.simpleicons.org/react/white" />
-                        </svg>
-                        <a href="https://react.dev/">
-                            <md-text-button trailing-icon>
-                                React
-                                <svg slot="icon" viewBox="0 0 48 48">
-                                    <path
-                                        d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
-                                </svg>
-                            </md-text-button>
-                        </a>
-                    </td>
                 </tr>
                 <tr>
                     <td>
@@ -280,6 +878,8 @@
                             </md-text-button>
                         </a>
                     </td>
+                </tr>
+                <tr>
                     <td>
                         <svg class="icon" viewBox="0 0 160 200">
                             <image xlink:href="https://cdn.simpleicons.org/node.js/white" />
@@ -294,71 +894,89 @@
                             </md-text-button>
                         </a>
                     </td>
+                    <td>
+                        <svg class="icon" viewBox="0 0 160 200">
+                            <image xlink:href="https://cdn.simpleicons.org/react/white" />
+                        </svg>
+                        <a href="https://react.dev/">
+                            <md-text-button trailing-icon>
+                                React
+                                <svg slot="icon" viewBox="0 0 48 48">
+                                    <path
+                                        d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                                </svg>
+                            </md-text-button>
+                        </a>
+                    </td>
                 </tr>
             </table>
         </div>
 </template>
 
-<template id="projectsPage" class="subpage">
+<template id="projects" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/c3a43ca1-6235-4137-9856-cdd41a63a9ad" height="50"
         width="50">
     <h1>My Projects</h1>
 
-    <h2>Matugen</h2>
-    <a href="https://www.github.com/InioX/matugen">
-        <md-outlined-button trailing-icon>
-            Repo
-            <svg slot="icon" viewBox="0 0 48 48">
-                <path
-                    d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
-            </svg>
-            </md-text-button>
-    </a>
+    <h2>Matugen</h3>
+        <a href="https://www.github.com/InioX/matugen">
+            <md-outlined-button trailing-icon>
+                Repo
+                <svg slot="icon" viewBox="0 0 48 48">
+                    <path
+                        d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                </svg>
+                </md-text-button>
+        </a>
 
-    <p>
-        A Material You color generation tool built in Rust with its own templating engine, support for filters,
-        importing data.
-        There is also a theme repository mentioned in the README that has a lot of apps supported in it.
-    </p>
+        <p>
+            A Material You color generation tool built in Rust with its own templating engine, support for filters,
+            importing data.
+            There is also a theme repository mentioned in the README that has a lot of apps supported in it.
+        </p>
 
-    <h2>Dotfiles</h2>
-    <a href="https://www.github.com/InioX/dotfiles">
-        <md-outlined-button trailing-icon>
-            Repo
-            <svg slot="icon" viewBox="0 0 48 48">
-                <path
-                    d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
-            </svg>
-            </md-text-button>
-    </a>
+        <h2>Dotfiles</h3>
+            <a href="https://www.github.com/InioX/dotfiles">
+                <md-outlined-button trailing-icon>
+                    Repo
+                    <svg slot="icon" viewBox="0 0 48 48">
+                        <path
+                            d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                    </svg>
+                    </md-text-button>
+            </a>
 
-    <p>
-        My personal dotfiles for NixOS, Arch, Windows, and Android. Arch and Windows branches are not really maintained
-        and just there as an archive.
-        The android version has its own script for automatically importing a backup into obtainium and installing all
-        apps with it.
-        It uses adb commands to simulate touch. Might work but i switched to just doing it manually.
-    </p>
+            <p>
+                My personal dotfiles for NixOS, Arch, Windows, and Android. Arch and Windows branches are not really
+                maintained
+                and just there as an archive.
+                The android version has its own script for automatically importing a backup into obtainium and
+                installing all
+                apps with it.
+                It uses adb commands to simulate touch. Might work but i switched to just doing it manually.
+            </p>
 
-    <h2>Website</h2>
-    <a href="https://www.github.com/InioX/iniox.github.io">
-        <md-outlined-button trailing-icon>
-            Repo
-            <svg slot="icon" viewBox="0 0 48 48">
-                <path
-                    d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
-            </svg>
-            </md-text-button>
-    </a>
+            <h2>Website</h3>
+                <a href="https://www.github.com/InioX/iniox.github.io">
+                    <md-outlined-button trailing-icon>
+                        Repo
+                        <svg slot="icon" viewBox="0 0 48 48">
+                            <path
+                                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+                        </svg>
+                        </md-text-button>
+                </a>
 
-    <p>
-        The current website you are looking at right now. It is in pure HTML, CSS and js.
-        <br>For the Material You theming it uses <a href="https://m3.material.io/develop/web">Material Design 3 for
-            Web</a>.
-    </p>
+                <p>
+                    The current website you are looking at right now. It is in pure HTML, CSS and js.
+                    <br>For the Material You theming it uses <a href="https://m3.material.io/develop/web">Material
+                        Design 3
+                        for
+                        Web</a>.
+                </p>
 </template>
 
-<template id="otherPage" class="subpage">
+<template id="other" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/f42d0cce-ba58-4ccf-b008-7dc0434d88e4" height="50"
         width="50">
     <h1>Other</h1>
@@ -372,7 +990,7 @@
         width="300px">
 </template>
 
-<template id="contactPage" class="subpage">
+<template id="contact" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/f42d0cce-ba58-4ccf-b008-7dc0434d88e4" height="50"
         width="50">
     <h1>Contact</h1>

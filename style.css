@@ -1,5 +1,39 @@
 :root {
-  color-scheme: dark;
+    color-scheme: dark;
+}
+
+@keyframes flash {
+    to {
+        background-color: color-mix(in srgb,
+                var(--md-sys-color-surface) 90%,
+                var(--md-sys-color-secondary) 20%);
+    }
+}
+
+.code-block {
+    background-color: var(--md-sys-color-secondary-container);
+    /* color: var(--md-sys-color-on-secondary-container); */
+    padding: 16px;
+    border-radius: 12px;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Roboto Mono', monospace;
+    font-size: clamp(12px, 3vw, 16px);
+    outline: 1px solid var(--md-sys-color-outline);
+}
+
+.code-block code {
+    display: block;
+    white-space: pre;
+}
+
+pre[class*="language-"],
+code[class*="language-"],
+code {
+    background: color-mix(in srgb,
+            var(--md-sys-color-surface) 85%,
+            var(--md-sys-color-primary) 10%) !important;
+    border-radius: 10px;
+    padding: 1.5px;
 }
 
 .banner {
@@ -14,6 +48,29 @@
     }
 }
 
+
+.header-copy-btn {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+}
+
+.header-copy-btn md-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.header-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    display: block;
+    width: 100%;
+    padding: 0;
+}
 
 .profile-pic {
     position: absolute;
@@ -31,6 +88,7 @@
 .header-image {
     height: 250px;
     width: 100%;
+    aspect-ratio: 16 / 6;
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 30px;
@@ -52,7 +110,7 @@ body {
 .center {
     text-align: center;
     width: 100%;
-    max-width: 800px;
+    /* max-width: 800px; */
     padding: 0 20px;
     box-sizing: border-box;
     margin: 0 auto;
@@ -64,8 +122,10 @@ md-divider {
     width: 100%;
 }
 
-.page-content p {
+.page-content p,
+.body-div {
     font-size: clamp(14px, 4vw, 18px);
+    width: 100%;
 }
 
 .button-row {
@@ -93,11 +153,6 @@ md-divider {
     border-spacing: 0;
 }
 
-.table-div {
-    overflow-x: auto;
-    margin: 0 auto;
-}
-
 .icon {
     height: 40px;
     display: block;
@@ -110,34 +165,50 @@ table {
     margin-right: auto;
     border: 1px solid var(--md-sys-color-outline);
     border-radius: 20px;
+
+    border-collapse: collapse;
+    width: 100%;
+    min-width: max-content;
 }
 
-th, td {
+.table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+th,
+td {
     padding: 10px;
     background-color: var(--md-sys-color-secondary-container);
 }
 
-tr:first-child td:first-child {
+th:first-of-type {
     border-top-left-radius: 20px;
 }
 
-tr:first-child td:last-child {
+th:last-of-type {
     border-top-right-radius: 20px;
 }
 
-tr:last-child td:first-child {
+tr:last-of-type td:first-of-type {
     border-bottom-left-radius: 20px;
 }
 
-tr:last-child td:last-child {
+tr:last-of-type td:last-of-type {
     border-bottom-right-radius: 20px;
 }
 
-header {
+.doc-page {
+    text-align: left;
+    justify-content: left;
+}
+
+.header {
     display: flex;
     gap: 12px;
     justify-content: center;
-    width: 100%; 
+    width: 100%;
     height: 100%;
     background-color: var(--md-sys-color-surface-container);
     padding: 10px;
@@ -145,14 +216,15 @@ header {
 }
 
 @media (max-width: 600px) {
-    header {
+    .header {
         flex-direction: column;
         align-items: center;
         gap: 8px;
         padding: 10px 5px;
     }
 
-    .header-left, .header-right {
+    .header-left,
+    .header-right {
         margin: 0;
         display: flex;
         flex-wrap: wrap;
