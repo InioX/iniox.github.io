@@ -12,8 +12,23 @@ const tabMap = [
 
 document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
 
+async function waitForImage(img) {
+    if (img.complete && img.naturalWidth !== 0) {
+        return;
+    }
+
+    await new Promise((resolve, reject) => {
+        img.addEventListener("load", resolve, { once: true });
+        img.addEventListener("error", reject, { once: true });
+    });
+}
+
 async function applyDynamicTheme() {
     const img = document.getElementById("themeImage");
+    if (!img) return;
+
+    await waitForImage(img);
+
     const theme = await themeFromImage(img);
     const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
