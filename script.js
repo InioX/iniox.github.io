@@ -10,6 +10,9 @@ const tabMap = [
     "matugen"
 ]
 
+let currentTab = null;
+let isProgrammaticNavigation = false;
+
 document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
 
 async function waitForImage(img) {
@@ -58,11 +61,12 @@ function attachPageListeners() {
     buttons.forEach(btn => {
         btn.addEventListener("click", e => {
             switchPage(btn)
-            console.log(btn.dataset.hash)
 
-            if (btn.dataset.fakeClick === 'true') {
+            if (isProgrammaticNavigation) {
                 return
             };
+
+            console.log(btn)
 
             location.hash = btn.dataset.hash;
         });
@@ -70,6 +74,9 @@ function attachPageListeners() {
 }
 
 async function switchTab(index) {
+    if (currentTab === index) return;
+    currentTab = index;
+
     const tabName = tabMap[index]
 
     const template = document.getElementById(tabName);
@@ -156,9 +163,9 @@ function flash(element) {
 }
 
 function fakeClick(btn) {
-    btn.dataset.fakeClick = 'true';
+    isProgrammaticNavigation = true;
     btn.click();
-    delete btn.dataset.fakeClick;
+    isProgrammaticNavigation = false;
 }
 
 function addCopyButtonsToHeaders(container = document) {
@@ -232,14 +239,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tabs.addEventListener('change', (event) => {
         const index = event.target.activeTabIndex;
-        switchTab(index);
 
         const tabName = tabMap[index] ?? "site";
         location.hash = `#${tabName}`;
     });
 
     window.addEventListener("hashchange", e => {
-        console.log(location.hash);
         handleHash(location.hash);
     });
 });
