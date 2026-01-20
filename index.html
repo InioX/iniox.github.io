@@ -630,12 +630,22 @@ input_path = "./include.txt"
 
         <h2>Conditionals</h2>
         <p>Conditionals allow branching logic inside templates.</p>
+        <p>Negation with the <code>not</code> keyword is supported. (any version above v3.1.0 supported)</p>
 
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">&lt;* if {{ condition }} *&gt;
   ...content if true...
 &lt;* else *&gt;
   ...content if false...
+&lt;* endif *&gt;</code></pre>
+        </md-card>
+
+        <p><strong>Using negation:</strong></p>
+
+        <pre class="code-block"><code class="language-bash">&lt;* if not {{ condition }} *&gt;
+  ...content if false...
+&lt;* else *&gt;
+  ...content if true...
 &lt;* endif *&gt;</code></pre>
         </md-card>
 
