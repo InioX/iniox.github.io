@@ -209,24 +209,6 @@ function addCopyButtonsToHeaders(container = document) {
 document.addEventListener("DOMContentLoaded", () => {
     handleHash(location.hash)
 
-    const topButtons = document.querySelectorAll("header md-filled-tonal-button, header md-text-button")
-
-    topButtons.forEach(btn => {
-        btn.addEventListener("click", async () => {
-            switch (btn.dataset.page) {
-                case "profile":
-                    location.href = "https://www.github.com/InioX/";
-                    break;
-                case "contact":
-                    switchPage(btn)
-                    break;
-                case "repo":
-                    location.href = "https://www.github.com/InioX/iniox.github.io";
-                    break;
-            }
-        })
-    })
-
     const backToTop = document.getElementById("to-top")
 
     backToTop.addEventListener("click", () => {
