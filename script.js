@@ -56,7 +56,7 @@ function switchPage(btn) {
 }
 
 function attachPageListeners() {
-    const buttons = document.querySelectorAll(".button-row md-outlined-button, .button-row md-filled-button");
+    const buttons = document.querySelectorAll(".button-row md-outlined-button, .button-row md-filled-button, .header-left md-filled-tonal-button");
 
     buttons.forEach(btn => {
         btn.addEventListener("click", e => {
@@ -65,8 +65,6 @@ function attachPageListeners() {
             if (isProgrammaticNavigation) {
                 return
             };
-
-            console.log(btn)
 
             location.hash = btn.dataset.hash;
         });
@@ -245,6 +243,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     window.addEventListener("hashchange", e => {
+        console.log(e)
+        console.log(location.hash)
         handleHash(location.hash);
     });
 });
