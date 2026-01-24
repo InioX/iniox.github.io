@@ -61,7 +61,7 @@
 
 <!-- Main site -->
 
-<template id="site">
+<template id="siteTemplate">
     <div class="header">
         <div class="header-left">
 
@@ -121,7 +121,7 @@
 
 <!-- Docs site -->
 
-<template id="docs">
+<template id="docsTemplate">
 
     <div class="header">
         <div class="header-left">
@@ -176,7 +176,7 @@
 
 <!-- Matugen -->
 
-<template id="matugen">
+<template id="matugenTemplate">
     <div class="header">
         <div class="header-left" data-anchor="docs">
             <md-filled-tonal-button id="backDocsButton" data-hash="#docs" data-page="docs" data-button="docs">
@@ -237,7 +237,7 @@
 
 <!-- Usage subpage -->
 
-<template id="usage" class="subpage">
+<template id="usageTemplate" class="subpage">
     <div class="doc-page">
         <h1>Usage</h1>
 
@@ -338,7 +338,7 @@ matugen color hex &lt;hex color&gt; -m "light"</code></pre>
 
 <!-- Configuration subpage -->
 
-<template id="configuration" class="subpage">
+<template id="configurationTemplate" class="subpage">
     <div class="doc-page">
         <h1>Configuration</h1>
 
@@ -420,7 +420,7 @@ post_hook = "cat /some/file.txt"</code></pre>
 
 <!-- Features subpage -->
 
-<template id="features" class="subpage">
+<template id="featuresTemplate" class="subpage">
     <div class="doc-page">
         <h1>Features</h1>
 
@@ -480,7 +480,7 @@ post_hook = "cat /some/file.txt"</code></pre>
 
 <!-- Installation subpage -->
 
-<template id="installation" class="subpage">
+<template id="installationTemplate" class="subpage">
     <div class="doc-page">
         <h1>Installation</h1>
 
@@ -554,8 +554,15 @@ in {
 
 <!-- Templates subpage -->
 
-<template id="templates" class="subpage">
-    <div class="doc-page">
+<template id="templatesTemplate" class="subpage">
+    <main class="doc-page">
+        <md-card class="code-card">
+            <nav id="toc" class="toc">
+                <h2 data-no-copy>Table of Contents</h2>
+                <ul></ul>
+            </nav>
+        </md-card>
+
         <h1>Templates</h1>
 
         <h2>Basic Syntax</h2>
@@ -582,7 +589,7 @@ in {
                     <tr>
                         <td><strong>Escaping</strong></td>
                         <td><code>\{{ ... }}</code></td>
-                        <td>Escapes template output so it isn’t evaluated.</td>
+                        <td>Escapes template output so it isn't evaluated.</td>
                     </tr>
                 </tbody>
             </table>
@@ -676,7 +683,7 @@ input_path = "./include.txt"
 &lt;* endfor *&gt;</code></pre>
             </md-card>
 
-            <h3>Filters</h3>
+            <h2>Filters</h2>
             <p>Filters transform or modify values, they are chained using the pipe symbol
                 (<code>|</code>).
                 They can support Expressions as arguments.</p>
@@ -690,14 +697,14 @@ input_path = "./include.txt"
 &lt;* endfor *&gt;</code></pre>
             </md-card>
 
-            <h3>Arithmetic and Nested Expressions</h3>
+            <h2>Arithmetic and Nested Expressions</h2>
             <p>Expressions can be nested or contain arithmetic operations.</p>
             <md-card class="code-card">
                 <pre class="code-block"><code class="language-bash">{{ {{ i }} * 10 }}
 {{ colors.red.default.hex | lighten: {{ i }} * 10 }}</code></pre>
             </md-card>
 
-            <h3>Escaping Output</h3>
+            <h2>Escaping Output</h2>
             <p>To render raw <code>{{ ... }}</code> text without evaluating it:</p>
             <md-card class="code-card">
                 <pre class="code-block"><code class="language-bash">\{{ colors.primary.default.hex }}</code></pre>
@@ -706,22 +713,22 @@ input_path = "./include.txt"
                 the result.</p>
 
 
-    </div>
+    </main>
 </template>
 
 <!-- Filters subpage -->
 
-<template id="filters" class="subpage">
+<template id="filtersTemplate" class="subpage">
     <div class="doc-page">
         <h1>Filters</h1>
 
-        <p>TODO</p>
+
     </div>
 </template>
 
 <!-- About subpage -->
 
-<template id="about" class="subpage">
+<template id="aboutTemplate" class="subpage">
 
     <img src="https://github.com/InioX/InioX/assets/81521595/f42d0cce-ba58-4ccf-b008-7dc0434d88e4" height="50"
         width="50">
@@ -924,7 +931,7 @@ input_path = "./include.txt"
 
 <!-- Projects subpage -->
 
-<template id="projects" class="subpage">
+<template id="projectsTemplate" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/c3a43ca1-6235-4137-9856-cdd41a63a9ad" height="50"
         width="50">
     <h1>My Projects</h1>
@@ -983,7 +990,7 @@ input_path = "./include.txt"
 
 <!-- Other subpage -->
 
-<template id="other" class="subpage">
+<template id="otherTemplate" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/f42d0cce-ba58-4ccf-b008-7dc0434d88e4" height="50"
         width="50">
     <h1>Other</h1>
@@ -999,7 +1006,7 @@ input_path = "./include.txt"
 
 <!-- Contact subpage -->
 
-<template id="contact" class="subpage">
+<template id="contactTemplate" class="subpage">
     <img src="https://github.com/InioX/InioX/assets/81521595/f42d0cce-ba58-4ccf-b008-7dc0434d88e4" height="50"
         width="50">
     <h1>Contact</h1>

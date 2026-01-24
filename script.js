@@ -43,7 +43,7 @@ function switchPage(btn) {
     const divider = document.getElementById("headerDivider");
 
     const page = btn.dataset.page;
-    const template = document.getElementById(page);
+    const template = document.getElementById(`${page}Template`);
 
     if (content) {
         content.innerHTML = "";
@@ -52,7 +52,11 @@ function switchPage(btn) {
 
     divider.style.visibility = "visible";
     addCopyButtonsToHeaders()
-    Prism.highlightAllUnder(content);
+
+    if (content) {
+        generateTOC(content);
+        Prism.highlightAllUnder(content);
+    }
 }
 
 function attachPageListeners() {
@@ -75,7 +79,7 @@ async function switchTab(index) {
     if (currentTab === index) return;
     currentTab = index;
 
-    const tabName = tabMap[index]
+    const tabName = `${tabMap[index]}Template`;
 
     const template = document.getElementById(tabName);
     const content = document.getElementById("bodyDiv");
@@ -86,7 +90,10 @@ async function switchTab(index) {
     attachPageListeners()
     addCopyButtonsToHeaders()
 
-    if (content) Prism.highlightAllUnder(content);
+    if (content) {
+        generateTOC(content);
+        Prism.highlightAllUnder(content);
+    }
 }
 
 function handleHash(hash) {
@@ -130,7 +137,12 @@ function handleHash(hash) {
         clickNextButton();
 
         function clickLastPart() {
-            const lastBtn = document.querySelector(`[data-button="${lastPart}"]`);
+            const header = document.getElementById(lastPart);
+
+
+            const lastBtn = !header ? document.querySelector(`[data-button="${lastPart}"]`) : null;
+
+            console.log("Navigating to", lastPart, header, lastBtn);
 
             if (lastBtn) {
                 fakeClick(lastBtn);
@@ -155,9 +167,11 @@ function handleHash(hash) {
 }
 
 function flash(element) {
-    setTimeout(function () { element.style.animation = "flash 0.3s 2 alternate ease-out"; }, 100);
+    element.style.animation = "flash 0.8s ease-in-out 2";
 
-    element.style.animation = "";
+    setTimeout(() => {
+        element.style.animation = "none";
+    }, 2000);
 }
 
 function fakeClick(btn) {
@@ -169,6 +183,8 @@ function fakeClick(btn) {
 function addCopyButtonsToHeaders(container = document) {
     container.querySelectorAll('h2, h3, h4').forEach(header => {
         if (header.querySelector('.header-copy-btn')) return;
+
+        if (header.hasAttribute('data-no-copy')) return;
 
         if (!header.id) {
             header.id = header.textContent.toLowerCase()
@@ -206,6 +222,78 @@ function addCopyButtonsToHeaders(container = document) {
     });
 }
 
+function generateTOC(root = document) {
+    const container = root.querySelector(".doc-page");
+    const tocRoot = root.querySelector("#toc ul");
+
+    console.log(root, container, tocRoot);
+
+    if (!container || !tocRoot) return;
+
+    tocRoot.innerHTML = "";
+
+    const headers = container.querySelectorAll("h2, h3, h4");
+
+    let currentH2 = null;
+    let currentH3 = null;
+
+    const baseHash = getBaseHash();
+
+    headers.forEach((header) => {
+        if (!header.id) {
+            header.id = header.textContent
+                .toLowerCase()
+                .replace(/[^\w]+/g, "-")
+                .replace(/^-+|-+$/g, "");
+        }
+
+        if (header.id === "table-of-contents") {
+            return;
+        }
+
+        const link = document.createElement("a");
+        link.href = `${baseHash}/${header.id}`;
+        link.textContent = header.textContent;
+
+        const li = document.createElement("li");
+        li.appendChild(link);
+
+        switch (header.tagName) {
+            case "H2": {
+                const ul = document.createElement("ul");
+                li.appendChild(ul);
+                tocRoot.appendChild(li);
+                currentH2 = ul;
+                currentH3 = null;
+                break;
+            }
+
+            case "H3": {
+                if (!currentH2) return;
+                const ul = document.createElement("ul");
+                li.appendChild(ul);
+                currentH2.appendChild(li);
+                currentH3 = ul;
+                break;
+            }
+
+            case "H4": {
+                if (!currentH3) return;
+                currentH3.appendChild(li);
+                break;
+            }
+        }
+    });
+}
+
+function getBaseHash() {
+    const parts = location.hash.replace("#", "").split("/").filter(Boolean);
+
+    const base = parts.slice(0, 2).join("/");
+
+    return `#${base}`;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     handleHash(location.hash)
 
@@ -224,9 +312,20 @@ document.addEventListener("DOMContentLoaded", () => {
         location.hash = `#${tabName}`;
     });
 
+
     window.addEventListener("hashchange", e => {
         console.log(e)
         console.log(location.hash)
         handleHash(location.hash);
+    });
+
+    const toTopBtn = document.getElementById("to-top");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+            toTopBtn.classList.add("visible");
+        } else {
+            toTopBtn.classList.remove("visible");
+        }
     });
 });
