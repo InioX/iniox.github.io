@@ -239,7 +239,16 @@
 
 <template id="usageTemplate" class="subpage">
     <div class="doc-page">
+        <md-card class="code-card">
+            <nav id="toc" class="toc">
+                <h2 data-no-copy>Table of Contents</h2>
+                <ul></ul>
+            </nav>
+        </md-card>
+
         <h1>Usage</h1>
+
+        <h2>Basic CLI commands</h2>
 
         <h3>Using the help command to list all other arguments</h3>
         <md-card class="code-card">
@@ -258,6 +267,30 @@
             <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
         </md-card>
 
+        <h3>Changing the mode to dark or light</h3>
+        <p>If no mode is provided, the default is dark.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+        </md-card>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m dark</code></pre>
+        </md-card>
+
+
+        <h3>Generate from a color</h3>
+        <p>Use <code>matugen -h</code> to see all the available formats you can use.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash"># Dark mode
+matugen color hsl &lt;hsl color&gt; -m "dark"
+# Light mode
+matugen color hex &lt;hex color&gt; -m "light"</code></pre>
+        </md-card>
+
+        <h3>Generate from an image</h3>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">matugen image /path/to/wallpaper/</code></pre>
+        </md-card>
+
         <br>
         <md-divider></md-divider>
 
@@ -273,7 +306,7 @@
             </svg>
         </md-filled-button>
 
-        <h4>Order of importing JSON</h4>
+        <h3>Order of importing JSON</h3>
         <p>The order is from first to last imported, the later ones will overwrite data</p>
         <ol>
             <li><code>--import-json</code></li>
@@ -303,35 +336,6 @@
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
         </md-card>
-
-        <br>
-        <md-divider></md-divider>
-        <br>
-
-        <h3>Changing the mode to dark or light</h3>
-        <p>If no mode is provided, the default is dark.</p>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
-        </md-card>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m dark</code></pre>
-        </md-card>
-
-
-        <h3>Generate from a color</h3>
-        <p>Use <code>matugen -h</code> to see all the available formats you can use.</p>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash"># Dark mode
-matugen color hsl &lt;hsl color&gt; -m "dark"
-# Light mode
-matugen color hex &lt;hex color&gt; -m "light"</code></pre>
-        </md-card>
-
-        <h3>Generate from an image</h3>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">matugen image /path/to/wallpaper/</code></pre>
-        </md-card>
-
     </div>
 
 </template>
@@ -340,13 +344,19 @@ matugen color hex &lt;hex color&gt; -m "light"</code></pre>
 
 <template id="configurationTemplate" class="subpage">
     <div class="doc-page">
+        <md-card class="code-card">
+            <nav id="toc" class="toc">
+                <h2 data-no-copy>Table of Contents</h2>
+                <ul></ul>
+            </nav>
+        </md-card>
+
         <h1>Configuration</h1>
 
-        <h3>Config file locations</h3>
+        <h2>Config file locations</h2>
 
         <p>You can use a custom configuration path by using the <code>-c</code> argument</p>
 
-        <h2>Basic Syntax</h2>
         <div class="table-wrapper">
             <table>
                 <thead>
@@ -385,6 +395,11 @@ matugen color hex &lt;hex color&gt; -m "light"</code></pre>
             </svg>
         </md-filled-button>
 
+        <br>
+        <br>
+        <md-divider></md-divider>
+
+        <h2>Basic Syntax</h2>
         <h3 id="adding-templates">Adding templates</h3>
 
         <md-card class="code-card">
@@ -422,6 +437,13 @@ post_hook = "cat /some/file.txt"</code></pre>
 
 <template id="featuresTemplate" class="subpage">
     <div class="doc-page">
+        <md-card class="code-card">
+            <nav id="toc" class="toc">
+                <h2 data-no-copy>Table of Contents</h2>
+                <ul></ul>
+            </nav>
+        </md-card>
+
         <h1>Features</h1>
 
         <p>For more information about features click the button below.</p>
@@ -433,7 +455,10 @@ post_hook = "cat /some/file.txt"</code></pre>
             </svg>
         </md-filled-button>
 
-        <h3>Default features</h3>
+        <br><br>
+        <md-divider></md-divider>
+
+        <h2>Default features</h2>
         <p>Matugen gets compiled with these features by default:</p>
 
         <div class="table-wrapper">
@@ -465,6 +490,11 @@ post_hook = "cat /some/file.txt"</code></pre>
             </table>
         </div>
 
+        <br>
+        <md-divider></md-divider>
+
+        <h2>Command examples for compiling</h2>
+
         <h3>Compiling with specific features</h3>
         <md-card class="code-card">
             <pre
@@ -482,31 +512,49 @@ post_hook = "cat /some/file.txt"</code></pre>
 
 <template id="installationTemplate" class="subpage">
     <div class="doc-page">
+        <md-card class="code-card">
+            <nav id="toc" class="toc">
+                <h2 data-no-copy>Table of Contents</h2>
+                <ul></ul>
+            </nav>
+        </md-card>
+
         <h1>Installation</h1>
 
-        <h3>Cargo</h3>
+        <h2>Cargo</h2>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">cargo install matugen</code></pre>
         </md-card>
 
-        <h3>AUR</h3>
+        <br>
+        <md-divider></md-divider>
+
+        <h2>AUR</h2>
         <p>Replace yay with your favorite AUR helper</p>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">yay -S matugen-bin</code></pre>
         </md-card>
 
-        <h3>NetBsd</h3>
+        <br>
+        <md-divider></md-divider>
+
+        <h2>NetBsd</h2>
+
+        <h3 data-no-copy>Using pkgin</h3>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">pkgin install matugen</code></pre>
         </md-card>
 
-        <p>Or if you prefer building from source:</p>
+        <h3 data-no-copy>From source</h3>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">cd /usr/pkgsrc/graphics/matugen
 make install</code></pre>
         </md-card>
 
-        <h3>NixOS</h3>
+        <br>
+        <md-divider></md-divider>
+
+        <h2>NixOS</h2>
         <p>Add matugen to your flake inputs</p>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">inputs = {
@@ -531,6 +579,7 @@ in {
 }</code></pre>
         </md-card>
 
+        <h3 data-no-copy>NixOS/Home Manager module</h3>
         <p>This flake also provides a NixOS/Home Manager module, which can be imported by adding this in your
             configuration</p>
 
