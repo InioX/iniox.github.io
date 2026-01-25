@@ -771,8 +771,383 @@ input_path = "./include.txt"
 
 <template id="filtersTemplate" class="subpage">
     <div class="doc-page">
+        <md-card class="code-card">
+            <nav id="toc" class="toc">
+                <h2 data-no-copy>Table of Contents</h2>
+                <ul></ul>
+            </nav>
+        </md-card>
+
         <h1>Filters</h1>
 
+        <!-- The docs below are auto generated -->
+        <h2>Colors</h2><md-divider></md-divider>
+        <div class='filter-doc'>
+            <h3>set_red</h3>
+            <p>Sets the red channel of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Int</code> - the red channel value (0-255)</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_red: 255 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>set_blue</h3>
+            <p>Sets the blue channel of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Int</code> - the blue channel value</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_blue: 255 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>set_green</h3>
+            <p>Sets the green channel of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Int</code> - the green channel value (0-255)</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_green: 255 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>set_blue</h3>
+            <p>Sets the blue channel of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Int</code> - the blue channel value (0-255)</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_blue: 255 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>set_alpha</h3>
+            <p>Sets the alpha channel of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Float</code> - the alpha channel value (0.0-1.0)</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_alpha: 0.1 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>set_hue</h3>
+            <p>Sets the hue channel of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Int</code> - the hue value (0-360)</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_hue: 360 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>set_saturation</h3>
+            <p>Sets the saturation of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Float</code> - the saturation value (0-100)</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_saturation: 100.0 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>set_lightness</h3>
+            <p>Sets the lightness of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Int</code> - the lightness value (0-100)</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#000000" | to_color | set_lightness: 100 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>lighten</h3>
+            <p>Lightens a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Float</code> - amount to adjust lightness by</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#ffffff" | to_color | lighten: 20.0 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>to_color</h3>
+            <p>Parses a CSS color string into a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "#ff00ff" | to_color }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>invert</h3>
+            <p>Inverts a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "#ffffff" | to_color | invert }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>grayscale</h3>
+            <p>Converts a color to grayscale</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "#ff0000" | to_color | grayscale }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>auto_lightness</h3>
+            <p>Automatically lightens or darkens a color based on its current lightness</p>
+
+            <p>If the color is dark, it will be lightened. If it is light, it will be darkened.</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Float</code> - amount to adjust lightness by</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#222222" | to_color | auto_lightness: 10.0 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>saturate</h3>
+            <p>Adjusts the saturation of a color</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Float</code> - saturation amount</li>
+                <li><code>String</code> - color space (<code>hsl</code> or <code>hsv</code>)</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#336699" | to_color | saturate: 20.0, "hsl" }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>blend</h3>
+            <p>Blends two colors together using hue blending</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Color</code> - color to blend with</li>
+                <li><code>Float</code> - blend amount (0.0 - 1.0)</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#ff0000" | to_color | blend: {{ "#0000ff" | to_color }}, 0.5 }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>harmonize</h3>
+            <p>Harmonizes a color with another using harmonization</p>
+
+            <p>This shifts the hue of the original color toward the target color.</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>Color</code> - color to harmonize with</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "#ff0000" | to_color | harmonize: {{ "#00ff00" | to_color }}</code></pre>
+            </md-card>
+
+        </div>
+        <h2>String</h2><md-divider></md-divider>
+        <div class='filter-doc'>
+            <h3>snake_case</h3>
+            <p>Converts a value to snake_case</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "Hello World" | snake_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>lower_case</h3>
+            <p>Converts a value to lowercase</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "Hello World" | lower_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>camel_case</h3>
+            <p>Converts a value to camelCase</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "hello world" | camel_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>pascal_case</h3>
+            <p>Converts a value to PascalCase</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "hello world" | pascal_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>kebab_case</h3>
+            <p>Converts a value to kebab-case</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "hello world" | kebab_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>replace</h3>
+            <p>Replaces all occurrences of a substring</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>String</code> - text to find</li>
+                <li><code>String</code> - replacement text</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "hello world" | replace: "world", "there" }}</code></pre>
+            </md-card>
+
+        </div>
 
     </div>
 </template>
