@@ -43,10 +43,22 @@
     outline: 1px solid var(--md-sys-color-outline);
 }
 
-
 .toc h2 {
     margin-top: 0px;
     color: var(--md-sys-color-on-primary-container);
+}
+
+.toc a:link {
+    color: var(--md-sys-color-primary);
+}
+
+.toc a:visited {
+    color: var(--md-sys-color-primary);
+}
+
+.toc a:hover {
+    text-decoration: underline;
+    font-weight: bold;
 }
 
 .toc ul {
@@ -76,6 +88,7 @@
 
 .toc li a.active {
     font-weight: 600;
+    color: var(--md-sys-color-on-surface);
 }
 
 #to-top {
