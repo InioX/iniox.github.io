@@ -1,0 +1,99 @@
+<div class="doc-page">
+    <md-card class="code-card">
+        <nav id="toc" class="toc">
+            <h2 data-no-copy>Table of Contents</h2>
+            <ul></ul>
+        </nav>
+    </md-card>
+
+    <h1>Usage</h1>
+
+    <h2>Basic CLI commands</h2>
+
+    <h3>Using the help command to list all other arguments</h3>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen -h</code></pre>
+    </md-card>
+
+    <h3>JSON output flag</h3>
+    <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated JSON.</p>
+    <md-card class="code-card">
+        <pre
+            class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; --json &lt;FORMAT&gt</code></pre>
+    </md-card>
+
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+    </md-card>
+
+    <h3>Changing the mode to dark or light</h3>
+    <p>If no mode is provided, the default is dark.</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+    </md-card>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m dark</code></pre>
+    </md-card>
+
+
+    <h3>Generate from a color</h3>
+    <p>Use <code>matugen -h</code> to see all the available formats you can use.</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash"># Dark mode
+matugen color hsl &lt;hsl color&gt; -m "dark"
+# Light mode
+matugen color hex &lt;hex color&gt; -m "light"</code></pre>
+    </md-card>
+
+    <h3>Generate from an image</h3>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen image /path/to/wallpaper/</code></pre>
+    </md-card>
+
+    <br>
+    <md-divider></md-divider>
+
+    <h2>Importing JSON</h2>
+
+    <p>You can also automatically import JSON files from the config. See the <code>[config.import_json_files]</code>
+        option.</p>
+    <md-filled-button trailing-icon href="https://github.com/InioX/matugen/blob/main/example/config.toml">
+        Check the configuration file here
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-filled-button>
+
+    <h3>Order of importing JSON</h3>
+    <p>The order is from first to last imported, the later ones will overwrite data</p>
+    <ol>
+        <li><code>--import-json</code></li>
+        <li><code>--import-json-string</code></li>
+        <li><code>[config.import_json_files]</code></li>
+    </ol>
+
+
+    <h3>Import JSON from file</h3>
+    <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated json.</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+    </md-card>
+
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+    </md-card>
+
+    <h3>Import JSON from string</h3>
+    <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated json.</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+    </md-card>
+
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+    </md-card>
+</div>

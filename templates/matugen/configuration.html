@@ -1,0 +1,88 @@
+<div class="doc-page">
+    <md-card class="code-card">
+        <nav id="toc" class="toc">
+            <h2 data-no-copy>Table of Contents</h2>
+            <ul></ul>
+        </nav>
+    </md-card>
+
+    <h1>Configuration</h1>
+
+    <h2>Config file locations</h2>
+
+    <p>You can use a custom configuration path by using the <code>-c</code> argument</p>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Windows</td>
+                    <td><code>C:\Users\user\AppData\Roaming\InioX\matugen\config\config.toml</code></td>
+
+                </tr>
+                <tr>
+                    <td>Linux/Unix</td>
+                    <td><code>/home/user/.config/matugen/config.toml</code></td>
+                </tr>
+                <tr>
+                    <td>MacOS</td>
+                    <td><code>/Users/user/Library/Application Support/com.InioX.matugen/config.toml</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Example Configuration</h3>
+
+    <p>The example <code>config.toml</code> file has comments for every option in the config.</p>
+
+    <md-filled-button trailing-icon href="https://github.com/InioX/matugen/blob/main/example/config.toml">
+        Check the example configuration here
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-filled-button>
+
+    <br>
+    <br>
+    <md-divider></md-divider>
+
+    <h2>Basic Syntax</h2>
+    <h3 id="adding-templates">Adding templates</h3>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-toml"># config_directory/config.toml
+
+[templates.test] # First way of adding template
+input_path = '~/.config/example/template.css'
+output_path = '~/.config/example'
+
+[templates] # Another way
+test2 = { input_path = '~/.config/example/template2.css', output_path = '~/.config/example2' }
+</code></pre>
+    </md-card>
+
+    <h3>Template hooks</h3>
+
+    <ul>
+        <li><code>pre_hook</code>: Executes a command inside the string <strong>BEFORE</strong> the template is
+            generated</li>
+        <li><code>post_hook</code>: Executes a command inside the string <strong>AFTER</strong> the template is
+            generated</li>
+    </ul>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-toml">[templates.test]
+# input_path = "some/path"
+# output_path = "some/path"
+pre_hook = 'echo "hello world"'
+post_hook = "cat /some/file.txt"</code></pre>
+    </md-card>
+</div>

@@ -13,6 +13,20 @@ const tabMap = [
 let currentTab = null;
 let isProgrammaticNavigation = false;
 
+const templateCache = {};
+
+async function loadTemplate(path) {
+    if (templateCache[path]) return templateCache[path];
+
+    const response = await fetch(`./templates/${path}.html`);
+    const html = await response.text();
+
+    const temp = document.createElement('template');
+    temp.innerHTML = html;
+    templateCache[path] = temp;
+    return temp;
+}
+
 document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
 
 async function waitForImage(img) {
@@ -38,12 +52,17 @@ async function applyDynamicTheme() {
     applyTheme(theme, { dark: systemDark });
 }
 
-function switchPage(btn) {
+async function switchPage(btn) {
     const content = document.getElementById("pageContent");
     const divider = document.getElementById("headerDivider");
 
-    const page = btn.dataset.page;
-    const template = document.getElementById(`${page}Template`);
+    if (!btn.dataset.hash) { return }
+
+    const page = btn.dataset.hash.slice(1);
+
+    if (page === "matugen") { return }
+
+    const template = await loadTemplate(page);
 
     if (content) {
         content.innerHTML = "";
@@ -62,8 +81,9 @@ function switchPage(btn) {
 function attachPageListeners() {
     const buttons = document.querySelectorAll(".button-row md-outlined-button, .button-row md-filled-button, .header-left md-filled-tonal-button");
 
-    buttons.forEach(btn => {
+    buttons.forEach(async btn => {
         btn.addEventListener("click", e => {
+
             switchPage(btn)
 
             if (isProgrammaticNavigation) {

@@ -1,0 +1,70 @@
+<div class="doc-page">
+    <md-card class="code-card">
+        <nav id="toc" class="toc">
+            <h2 data-no-copy>Table of Contents</h2>
+            <ul></ul>
+        </nav>
+    </md-card>
+
+    <h1>Features</h1>
+
+    <p>For more information about features click the button below.</p>
+    <md-filled-button trailing-icon href="https://github.com/InioX/matugen/blob/main/Cargo.toml">
+        Check the Cargo.toml file here
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-filled-button>
+
+    <br><br>
+    <md-divider></md-divider>
+
+    <h2>Default features</h2>
+    <p>Matugen gets compiled with these features by default:</p>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>dump-json</code></td>
+                    <td>✅</td>
+                    <td>The ability to use the <code>--dump-json</code> flag.</td>
+                </tr>
+                <tr>
+                    <td><code>web-image</code></td>
+                    <td>❌</td>
+                    <td>The ability to use the <code>matugen web-image</code> subcommand.</td>
+                </tr>
+                <tr>
+                    <td><code>update-informer</code></td>
+                    <td>❌</td>
+                    <td>Will notify the user if there is an update available</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <md-divider></md-divider>
+
+    <h2>Command examples for compiling</h2>
+
+    <h3>Compiling with specific features</h3>
+    <md-card class="code-card">
+        <pre
+            class="code-block"><code class="language-bash">cargo build --features "&lt;features seperated by space&gt;"</code></pre>
+    </md-card>
+
+    <h3>Compiling with all features</h3>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">cargo build --all-features</code></pre>
+    </md-card>
+</div>

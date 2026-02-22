@@ -1,0 +1,159 @@
+<main class="doc-page">
+    <md-card class="code-card">
+        <nav id="toc" class="toc">
+            <h2 data-no-copy>Table of Contents</h2>
+            <ul></ul>
+        </nav>
+    </md-card>
+
+    <h1>Templates</h1>
+
+    <h2>Basic Syntax</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Syntax</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Expression</strong> (Keyword)</td>
+                    <td><code>{{ expression }}</code></td>
+                    <td>Evaluates and outputs a value.</td>
+                </tr>
+                <tr>
+                    <td><strong>Block</strong></td>
+                    <td><code>&lt;* ... *&gt;</code></td>
+                    <td>Used for loops, conditionals and includes.</td>
+                </tr>
+                <tr>
+                    <td><strong>Escaping</strong></td>
+                    <td><code>\{{ ... }}</code></td>
+                    <td>Escapes template output so it isn't evaluated.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <h2>Expressions</h2>
+    <p>Use <strong>dot notation</strong> to access nested values inside context objects.</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{{ colors.primary.default.hex }}
+{{ palettes.error._99.hex }}
+{{ mode }}</code></pre>
+    </md-card>
+
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{{ custom.red_color.hex }} -> #ff0000
+{{ custom.red_color.rgb }} -> rgb(255, 0, 0)</code></pre>
+    </md-card>
+
+
+    <h2>Includes</h2>
+
+    <p>Includes another template file, the name should be the template name you put in the config.</p>
+    <p>If you just want to use the included template inside of another one and don&#39;t want to write
+        it to a file,
+        you can just comment out the <code>output_path</code></p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-toml">[templates.includeme]
+input_path = "./include.txt"
+# The output path is optional if you just want to import the template
+# output_path = "./a/include.txt"
+</code></pre>
+    </md-card>
+
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">&lt;* include "includeme" *&gt;</code></pre>
+    </md-card>
+
+
+
+    <h2>Conditionals</h2>
+    <p>Conditionals allow branching logic inside templates.</p>
+    <p>Negation with the <code>not</code> keyword is supported for any version above <code>v3.1.0</code></p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">&lt;* if {{ condition }} *&gt;
+  ...content if true...
+&lt;* else *&gt;
+  ...content if false...
+&lt;* endif *&gt;</code></pre>
+    </md-card>
+
+    <h3>If statement</h3>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">&lt;* if {{ is_dark_mode }} *&gt;
+  Dark Mode
+&lt;* else *&gt;
+  Light Mode
+&lt;* endif *&gt;</code></pre>
+    </md-card>
+
+    <h3>If statement using negation</h3>
+
+    <pre class="code-block"><code class="language-bash">&lt;* if not {{ condition }} *&gt;
+  ...content if false...
+&lt;* else *&gt;
+  ...content if true...
+&lt;* endif *&gt;</code></pre>
+    </md-card>
+
+    <h2>Loops</h3>
+        <h3 id="range-loop">Range Loop</h3>
+        <p>Iterates over a numeric range (inclusive).</p>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">&lt;* for i in -10..10 *&gt;
+  {{ i }}
+&lt;* endfor *&gt;</code></pre>
+        </md-card>
+
+        <h3>Key-Value Loop</h3>
+        <p>Iterates through maps or objects, exposing both key and value bindings.</p>
+
+        <h4>Listing all the MD3 colors</h4>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">&lt;* for name, value in colors *&gt;
+  {{ name }}: {{ value.default.hex }};
+&lt;* endfor *&gt;</code></pre>
+        </md-card>
+
+        <h2>Filters</h2>
+        <p>Filters transform or modify values, they are chained using the pipe symbol
+            (<code>|</code>).
+            They can support Expressions as arguments.</p>
+        <p><strong>Example:</strong></p>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{{ colors.primary.default.hex | lighten: 20.0 | invert }}
+
+&lt;* for i in -10..10 *&gt;
+    actual: {{ i }} multiplied: {{ {{ i }} * 10 }} {{ colors.red.default.hex | lighten: {{i}} * 10 }}
+&lt;* endfor *&gt;</code></pre>
+        </md-card>
+
+        <h2>Arithmetic and Nested Expressions</h2>
+        <p>Expressions can be nested or contain arithmetic operations.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{{ {{ i }} * 10 }}
+{{ colors.red.default.hex | lighten: {{ i }} * 10 }}</code></pre>
+        </md-card>
+
+        <h2>Escaping Output</h2>
+        <p>To render raw <code>{{ ... }}</code> text without evaluating it:</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">\{{ colors.primary.default.hex }}</code></pre>
+        </md-card>
+        <p>This will output literally <code>{{ colors.primary.default.hex }}</code> in
+            the result.</p>
+
+
+</main>

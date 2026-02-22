@@ -1,0 +1,88 @@
+<div class="doc-page">
+    <md-card class="code-card">
+        <nav id="toc" class="toc">
+            <h2 data-no-copy>Table of Contents</h2>
+            <ul></ul>
+        </nav>
+    </md-card>
+
+    <h1>Installation</h1>
+
+    <h2>Cargo</h2>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">cargo install matugen</code></pre>
+    </md-card>
+
+    <br>
+    <md-divider></md-divider>
+
+    <h2>AUR</h2>
+    <p>Replace yay with your favorite AUR helper</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">yay -S matugen-bin</code></pre>
+    </md-card>
+
+    <br>
+    <md-divider></md-divider>
+
+    <h2>NetBsd</h2>
+
+    <h3 data-no-copy>Using pkgin</h3>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">pkgin install matugen</code></pre>
+    </md-card>
+
+    <h3 data-no-copy>From source</h3>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">cd /usr/pkgsrc/graphics/matugen
+make install</code></pre>
+    </md-card>
+
+    <br>
+    <md-divider></md-divider>
+
+    <h2>NixOS</h2>
+    <p>Add matugen to your flake inputs</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">inputs = {
+  matugen = {
+    url = "github:/InioX/Matugen";
+    # If you need a specific version:
+    ref = "refs/tags/matugen-v0.10.0";
+  };
+  # ...
+};</code></pre>
+    </md-card>
+
+    <p>Then you can add it to your packages</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">let
+  system = "x86_64-linux";
+in {
+  environment.systemPackages = with pkgs; [    
+    # ...
+    inputs.matugen.packages.${system}.default
+  ];
+}</code></pre>
+    </md-card>
+
+    <h3 data-no-copy>NixOS/Home Manager module</h3>
+    <p>This flake also provides a NixOS/Home Manager module, which can be imported by adding this in your
+        configuration</p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{pkgs, inputs, ...}: {
+  imports = [
+    inputs.matugen.nixosModules.default
+  ];
+
+  # ...
+}</code></pre>
+    </md-card>
+
+    <p>The module does NOT automatically symlink the files. For an example of using this module with Home Manager,
+        see <a href="https://github.com/InioX/matugen/issues/28">
+            this issue comment
+        </a>.<br>Option details can be found by reading the <a
+            href="https://github.com/InioX/matugen/blob/main/module.nix">module</a>.</p>
+</div>
