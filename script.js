@@ -62,7 +62,7 @@ async function switchPage(btn) {
 
     if (page === "matugen") { return }
 
-    const template = await loadTemplate(page);
+    const template = await loadTemplate("./" + page);
 
     if (content) {
         content.innerHTML = "";
