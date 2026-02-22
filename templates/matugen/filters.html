@@ -269,105 +269,127 @@
                 class="code-block"><code class="language-bash">{{ "#ff0000" | to_color | harmonize: {{ "#00ff00" | to_color }}</code></pre>
         </md-card>
 
+        <div class='filter-doc'>
+            <h3>format</h3>
+            <p>Formats a color into a certain format just like what using the .&lt;format&gt; on a color keyword would.
+                This
+                is useful for colors that are defined in the templates as there is no way to format them otherwise.
+            </p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "#ff00ff" | format: "hex" }}</code></pre>
+            </md-card>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>String</code> - what to format the color into</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "#ff00ff" | to_color }}</code></pre>
+            </md-card>
+
+
+        </div>
+        <h2>String</h2><md-divider></md-divider>
+        <div class='filter-doc'>
+            <h3>snake_case</h3>
+            <p>Converts a value to snake_case</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "Hello World" | snake_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>lower_case</h3>
+            <p>Converts a value to lowercase</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "Hello World" | lower_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>camel_case</h3>
+            <p>Converts a value to camelCase</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "hello world" | camel_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>pascal_case</h3>
+            <p>Converts a value to PascalCase</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "hello world" | pascal_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>kebab_case</h3>
+            <p>Converts a value to kebab-case</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li>None</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre class="code-block"><code class="language-bash">{{ "hello world" | kebab_case }}</code></pre>
+            </md-card>
+
+        </div>
+        <div class='filter-doc'>
+            <h3>replace</h3>
+            <p>Replaces all occurrences of a substring</p>
+
+            <p><strong>Arguments:</strong></p>
+
+            <ul>
+                <li><code>String</code> - text to find</li>
+                <li><code>String</code> - replacement text</li>
+            </ul>
+
+            <p><strong>Example:</strong></p>
+            <md-card class="code-card">
+                <pre
+                    class="code-block"><code class="language-bash">{{ "hello world" | replace: "world", "there" }}</code></pre>
+            </md-card>
+
+        </div>
+
     </div>
-    <h2>String</h2><md-divider></md-divider>
-    <div class='filter-doc'>
-        <h3>snake_case</h3>
-        <p>Converts a value to snake_case</p>
-
-        <p><strong>Arguments:</strong></p>
-
-        <ul>
-            <li>None</li>
-        </ul>
-
-        <p><strong>Example:</strong></p>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">{{ "Hello World" | snake_case }}</code></pre>
-        </md-card>
-
-    </div>
-    <div class='filter-doc'>
-        <h3>lower_case</h3>
-        <p>Converts a value to lowercase</p>
-
-        <p><strong>Arguments:</strong></p>
-
-        <ul>
-            <li>None</li>
-        </ul>
-
-        <p><strong>Example:</strong></p>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">{{ "Hello World" | lower_case }}</code></pre>
-        </md-card>
-
-    </div>
-    <div class='filter-doc'>
-        <h3>camel_case</h3>
-        <p>Converts a value to camelCase</p>
-
-        <p><strong>Arguments:</strong></p>
-
-        <ul>
-            <li>None</li>
-        </ul>
-
-        <p><strong>Example:</strong></p>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">{{ "hello world" | camel_case }}</code></pre>
-        </md-card>
-
-    </div>
-    <div class='filter-doc'>
-        <h3>pascal_case</h3>
-        <p>Converts a value to PascalCase</p>
-
-        <p><strong>Arguments:</strong></p>
-
-        <ul>
-            <li>None</li>
-        </ul>
-
-        <p><strong>Example:</strong></p>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">{{ "hello world" | pascal_case }}</code></pre>
-        </md-card>
-
-    </div>
-    <div class='filter-doc'>
-        <h3>kebab_case</h3>
-        <p>Converts a value to kebab-case</p>
-
-        <p><strong>Arguments:</strong></p>
-
-        <ul>
-            <li>None</li>
-        </ul>
-
-        <p><strong>Example:</strong></p>
-        <md-card class="code-card">
-            <pre class="code-block"><code class="language-bash">{{ "hello world" | kebab_case }}</code></pre>
-        </md-card>
-
-    </div>
-    <div class='filter-doc'>
-        <h3>replace</h3>
-        <p>Replaces all occurrences of a substring</p>
-
-        <p><strong>Arguments:</strong></p>
-
-        <ul>
-            <li><code>String</code> - text to find</li>
-            <li><code>String</code> - replacement text</li>
-        </ul>
-
-        <p><strong>Example:</strong></p>
-        <md-card class="code-card">
-            <pre
-                class="code-block"><code class="language-bash">{{ "hello world" | replace: "world", "there" }}</code></pre>
-        </md-card>
-
-    </div>
-
-</div>
