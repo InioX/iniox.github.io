@@ -120,7 +120,7 @@ async function switchTab(index) {
     }
 }
 
-function handleHash(hash) {
+async function handleHash(hash) {
     if (!hash) {
         location.hash = "#site"
         return
@@ -137,7 +137,7 @@ function handleHash(hash) {
 
     tabs.activeTabIndex = tabIndex / tabIndex;
 
-    switchTab(tabIndex).then(() => {
+    await switchTab(tabIndex).then(() => {
         if (parts.length === 1) return;
 
         const intermediateButtons = parts.slice(1, -1);
