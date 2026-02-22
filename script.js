@@ -137,7 +137,9 @@ async function handleHash(hash) {
 
     tabs.activeTabIndex = tabIndex / tabIndex;
 
-    await switchTab(tabIndex).then(() => {
+    await switchTab(tabIndex)
+
+    requestAnimationFrame(() => {
         if (parts.length === 1) return;
 
         const intermediateButtons = parts.slice(1, -1);
@@ -146,7 +148,24 @@ async function handleHash(hash) {
         let i = 0;
         const clickNextButton = () => {
             if (i >= intermediateButtons.length) {
-                clickLastPart();
+                setTimeout(() => {
+                    const header = document.getElementById(lastPart);
+                    const lastBtn = !header ? document.querySelector(`[data-button="${lastPart}"]`) : null;
+
+                    if (lastBtn) {
+                        fakeClick(lastBtn);
+                        setTimeout(() => {
+                            const newHeader = document.getElementById(lastPart);
+                            if (newHeader) {
+                                newHeader.scrollIntoView({ behavior: "smooth", block: 'center' });
+                                flash(newHeader);
+                            }
+                        }, 150);
+                    } else if (header) {
+                        header.scrollIntoView({ behavior: "smooth", block: 'center' });
+                        flash(header);
+                    }
+                }, 100);
                 return;
             }
 
@@ -154,41 +173,14 @@ async function handleHash(hash) {
             if (btn) {
                 fakeClick(btn);
                 i++;
-                setTimeout(clickNextButton, 40);
+                setTimeout(clickNextButton, 100);
             }
         };
 
         clickNextButton();
-
-        function clickLastPart() {
-            const header = document.getElementById(lastPart);
-
-
-            const lastBtn = !header ? document.querySelector(`[data-button="${lastPart}"]`) : null;
-
-            console.log("Navigating to", lastPart, header, lastBtn);
-
-            if (lastBtn) {
-                fakeClick(lastBtn);
-
-                setTimeout(() => {
-                    const header = document.getElementById(lastPart);
-                    if (header) {
-                        header.scrollIntoView({ behavior: "smooth", block: 'center' });
-                    }
-                }, 60);
-            } else {
-                const header = document.getElementById(lastPart);
-                if (header) {
-                    header.scrollIntoView({
-                        behavior: "smooth", block: 'center'
-                    });
-                    flash(header)
-                }
-            }
-        }
     });
-}
+};
+
 
 function flash(element) {
     element.style.animation = "flash 0.8s ease-in-out 2";
