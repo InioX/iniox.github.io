@@ -22,7 +22,7 @@ async function loadTemplate(path) {
 
     const html = await response.text();
 
-    console.log(html)
+    // console.log(html)
 
     const temp = document.createElement('template');
     temp.innerHTML = html;
@@ -211,6 +211,7 @@ function addCopyButtonsToHeaders(container = document) {
                 .replace(/[^\w-]/g, '');
         }
 
+        const baseHash = getBaseHash();
         const btn = document.createElement('md-text-button');
         btn.className = 'header-copy-btn';
 
@@ -223,7 +224,8 @@ function addCopyButtonsToHeaders(container = document) {
 
         btn.addEventListener('click', () => {
 
-            const url = `${location.origin}${location.pathname}${location.hash}/${header.id}`;
+
+            const url = `${baseHash}/${header.id}`;
 
             navigator.clipboard.writeText(url).then(() => {
                 icon.innerHTML = `
