@@ -1,0 +1,160 @@
+<main class="doc-page">
+    <md-card class="code-card">
+        <nav id="toc" class="toc">
+            <h2 data-no-copy>Table of Contents</h2>
+            <ul></ul>
+        </nav>
+    </md-card>
+
+    <h1>Getting started</h1>
+
+    <h2>Basics</h2>
+
+    <p>Matugen uses templates with keywords inside of them. First it replaces those keywords and then writes the
+        replaced text to a file. Templates can be files with any file extension with text inside of them that uses the
+        UTF-8 encoding.</p>
+    <p>Keywords are used inside of these brackets <code>{{ }}</code>. For more advanced functions you can use the block
+        syntax <code>&lt;* *&gt;</code>. You can also modify the syntax in your configuration.</p>
+    <p>Matugen generates Material Design 3 and base16 colors. You can also import custom json through the config, CLI or
+        overwrite it by providing json as a string argument. You can then use the imported json in your templates.</p>
+
+    <md-outlined-button trailing-icon href="https://iniox.github.io/#matugen/usage/importing-json">
+        More about importing json
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-outlined-button>
+
+    <h4>Template syntax and colors</h4>
+    <md-filled-button trailing-icon href="https://iniox.github.io/#matugen/templates">
+        More about syntax and colors
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-filled-button>
+
+    <h2>Making a template for waybar</h2>
+
+    <p>Make a file in <code>~/.config/matugen/templates/colors.css</code>.</p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-css">/*
+* Css Colors
+* Generated with Matugen
+*/
+<* for name, value in colors *>
+@define-color {{name}} {{value.default.hex}};
+<* endfor *></code></pre>
+    </md-card>
+
+    <h2>Importing the colors into waybar</h2>
+    <p>We need to import the matugen colors into our waybar configuration. Make a file in
+        <code>~/.config/waybar/style.css</code>
+    </p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-css">@import "colors.css";
+
+/* Only to see that the colors actually get applied */
+* {
+    background-color: @primary_container;
+}</code></pre>
+    </md-card>
+
+    <h2>Adding the template into the matugen configuration</h2>
+
+    <p>Below is a very basic configuration file. You have to list all of your templates here by writing
+        <code>[templates.&lt;name&gt;]</code>
+    </p>
+    <p>Every template has an input and an output path. The input path is where your template with the keywords is.</p>
+    <p>The output path is where the generated template with already replaced keywords should be written to.</p>
+    <p>Only the input path for templates is required, you can leave the input path empty and use the template for
+        importing it into other templates.</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-toml"># config_directory/config.toml
+[config]
+
+[templates.waybar]
+input_path = '~/.config/matugen/colors.css'
+output_path = '~/.config/waybar/colors.css'</code></pre>
+    </md-card>
+
+    <br>
+
+    <md-outlined-button trailing-icon href="https://iniox.github.io/#matugen/configuration/config-file-locations">
+        More about configuration paths
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-outlined-button>
+
+    <h2>Reloading waybar using a hook</h2>
+
+    <p>Having to restart waybar to see the colors change can get annoying. There are hooks in matugen for that exact
+        purpose.</p>
+
+    <p>Hooks are strings that can contain keywords inside of them just like templates.</p>
+
+    <ul>
+        <li><code>pre_hook</code>: Executes a command inside the string <strong>BEFORE</strong> the template is
+            generated</li>
+        <li><code>post_hook</code>: Executes a command inside the string <strong>AFTER</strong> the template is
+            generated</li>
+    </ul>
+
+    <p>Since we want to restart waybar after the template gets generated, we will use a <code>post_hook</code></p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-toml">[config]
+
+[templates.waybar]
+input_path = '~/.config/matugen/colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = "pkill -SIGUSR2 waybar"</code></pre>
+    </md-card>
+
+    <h2>Automatically setting the wallpaper from the configuration</h2>
+
+    <p>We will be using swww to set the wallpaper when all templates get generated.</p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-toml">[config]
+
+[config.wallpaper]
+# Whether to set the wallpaper or not
+set = true
+
+# The base command to run for applying the wallpaper.
+# Keywords like {{ image }} or anything that works inside of hooks works here.
+# You could also set a static color if you use the color keywords and the wallpaper setter supports it.
+command = "swww img --transition-type center {{ image }}"
+
+# For example, killing the wallpaper daemon. Usage is like a normal hook.
+# pre_hook = ""
+
+[templates.waybar]
+input_path = '~/.config/matugen/colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = "pkill -SIGUSR2 waybar"</code></pre>
+    </md-card>
+
+    <h2>Running matugen to generate the waybar theme</h2>
+    <p>You can run matugen with either an image or a color. We will be using an image to generate the colorscheme.</p>
+    <p>Matugen will show a source color selection prompt, to skip it you can either use the
+        <code>--source-color-index</code> or <code>--prefer</code> flags.
+    </p>
+    <p>To see more output we will use the <code>--verbose</code> flag, and <code>--show-colors</code> to see all of the
+        colors.</p>
+
+    <p>You can change the mode to be dark or light, change the lightness or contrast, choose a different scheme and
+        more. See the <a href="https://iniox.github.io/#matugen/usage">Usage</a> section for more or run
+        <code>matugen --help</code> to see all of the flags with their descriptions.
+    </p>
+
+    <md-card class="code-card">
+        <pre
+            class="code-block"><code class="language-bash">matugen image /path/to/image --verbose --show-colors</code></pre>
+    </md-card>
+</main>

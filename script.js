@@ -19,7 +19,10 @@ async function loadTemplate(path) {
     if (templateCache[path]) return templateCache[path];
 
     const response = await fetch(`./templates/${path}.html`);
+
     const html = await response.text();
+
+    console.log(html)
 
     const temp = document.createElement('template');
     temp.innerHTML = html;
