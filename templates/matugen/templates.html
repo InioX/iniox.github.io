@@ -40,15 +40,149 @@
 
     <h2>Colors and variables</h2>
 
+    <p>You can use your own colors by importing JSON or using the <code>to_color</code> filter.</p>
+
+    <md-outlined-button trailing-icon href="https://iniox.github.io/#matugen/usage/importing-json">
+        More about importing json
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-outlined-button>
+
+    <md-outlined-button trailing-icon href="https://iniox.github.io/#matugen/filters/to_color/">
+        More about to_color filter
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-outlined-button>
+
+    <h3>Color formats</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Format</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>hex</code></td>
+                    <td><code>#RRGGBB</code></td>
+                    <td><code>#470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>hex_stripped</code></td>
+                    <td><code>RRGGBB</code></td>
+                    <td><code>470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>hex_alpha</code></td>
+                    <td><code>#RRGGBBAA</code></td>
+                    <td><code>#470228ff</code></td>
+                </tr>
+                <tr>
+                    <td><code>hex_alpha_stripped</code></td>
+                    <td><code>RRGGBBAA</code></td>
+                    <td><code>#470228ff</code></td>
+                </tr>
+                <tr>
+                    <td><code>alpha_hex</code></td>
+                    <td><code>#AARRGGBB</code></td>
+                    <td><code>#ff470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>alpha_hex_stripped</code></td>
+                    <td><code>AARRGGBB</code></td>
+                    <td><code>ff470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>rgb</code></td>
+                    <td><code>rgb(r, g, b)</code></td>
+                    <td><code>rgb(71, 2, 40)</code></td>
+                </tr>
+                <tr>
+                    <td><code>rgba</code></td>
+                    <td><code>rgba(r, g, b, a)</code></td>
+                    <td><code>rgba(71, 2, 40, 1.0)</code></td>
+                </tr>
+                <tr>
+                    <td><code>hsl</code></td>
+                    <td><code>hsl(h, s, l)</code></td>
+                    <td><code>hsl(332.2, 94.5%, 14.3%)</code></td>
+                </tr>
+                <tr>
+                    <td><code>hsla</code></td>
+                    <td><code>hsla(h, s, l, a)</code></td>
+                    <td><code>hsla(332.2, 94.5%, 14.3%, 1.0)</code></td>
+                </tr>
+                <tr>
+                    <td><code>red</code></td>
+                    <td><code>red</code> (0 - 255)</td>
+                    <td><code>71</code></td>
+                </tr>
+                <tr>
+                    <td><code>green</code></td>
+                    <td><code>green</code> (0 - 255)</td>
+                    <td><code>2</code></td>
+                </tr>
+                <tr>
+                    <td><code>blue</code></td>
+                    <td><code>blue</code> (0 - 255)</td>
+                    <td><code>34</code></td>
+                </tr>
+                <tr>
+                    <td><code>alpha</code></td>
+                    <td><code>alpha</code> (0.0 - 1.0)</td>
+                    <td><code>0.7</code></td>
+                </tr>
+                <tr>
+                    <td><code>hue</code></td>
+                    <td><code>hue</code> (0.0 - 360.0)</td>
+                    <td><code>332.2</code></td>
+                </tr>
+                <tr>
+                    <td><code>saturation</code></td>
+                    <td><code>saturation</code> (0.0 - 100.0)</td>
+                    <td><code>94.5%</code></td>
+                </tr>
+                <tr>
+                    <td><code>lightness</code></td>
+                    <td><code>lightness</code> (0.0 - 100.0)</td>
+                    <td><code>14.3%</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
     <h3>Material Design 3</h3>
 
-    <md-divider></md-divider>
+    <p>Material Design 3 (M3) colors
+        focus on personalized, accessible, and dynamic schemes, using 5 key roles—Primary, Secondary, Tertiary, Neutral,
+        and Neutral Variant.</p>
 
-    <h4>Usage</h4>
-    <code>{{ colors.&lt;name&gt;.&lt;mode&gt;.&lt;format&gt;}}</code>
-    <h4>Example</h4>
-    <code>{{ colors.primary.default.hex }}</code>
-    <br><br><br>
+    <md-outlined-button trailing-icon href="https://m3.material.io/styles/color/system/overview">
+        More about MD3
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-outlined-button>
+
+    <p><strong>Usage:</strong></p>
+    <md-card class="code-card">
+        <pre
+            class="code-block"><code class="language-bash">{{ colors.&lt;name&gt;.&lt;mode&gt;.&lt;format&gt;}}</code></pre>
+    </md-card>
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{{ colors.primary.default.hex }}</code></pre>
+    </md-card>
+
+    <br>
 
     <div class="table-wrapper">
         <table>
@@ -165,13 +299,31 @@
 
     <h3>Base16</h3>
 
-    <md-divider></md-divider>
+    <p>Base16 is a framework for creating consistent, syntax-highlighting color themes across various applications
+        (terminal, editor, shell) using a standardized palette of 16 colors. It consists of 8 shades (for
+        background/foreground) and 8 accent colors, ensuring high contrast, readability, and a unified look across
+        different software.</p>
 
-    <h4>Usage</h4>
-    <code>{{ base16.&lt;name&gt;.&lt;mode&gt;.&lt;format&gt;}}</code>
-    <h4>Example</h4>
-    <code>{{ base16.base00.default.hex }}</code>
-    <br><br><br>
+    <md-outlined-button trailing-icon href="https://github.com/chriskempson/base16/blob/main/styling.md">
+        More about base16
+        <svg slot="icon" viewBox="0 0 48 48">
+            <path
+                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
+        </svg>
+    </md-outlined-button>
+
+    <p><strong>Usage:</strong></p>
+    <md-card class="code-card">
+        <pre
+            class="code-block"><code class="language-bash">{{ base16.&lt;name&gt;.&lt;mode&gt;.&lt;format&gt;}}</code></pre>
+    </md-card>
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{{ base16.base00.default.hex }}</code></pre>
+    </md-card>
+
+    <br>
+
 
     <div class="table-wrapper">
         <table>
@@ -251,6 +403,26 @@
     </div>
 
     <h3>Variables</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>is_dark_mode</code></td>
+                    <td>Is <code>true</code> if dark mode is enabled.</td>
+                </tr>
+                <tr>
+                    <td><code>mode</code></td>
+                    <td><code>Dark</code> or <code>Light</code> depending on the mode.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 
     <h2>Expressions</h2>
@@ -263,7 +435,7 @@
 
     <p><strong>Example:</strong></p>
     <md-card class="code-card">
-        <pre class="code-block"><code class="language-bash">{{ custom.red_color.hex }} -> #ff0000
+        <pre class="code-block"><code class="language-bash">{{ custom.red_color.hex }} -> #470228
 {{ custom.red_color.rgb }} -> rgb(255, 0, 0)</code></pre>
     </md-card>
 
@@ -272,7 +444,7 @@
         <pre class="code-block"><code class="language-json">{
   "custom": {
     "red_color": {
-      "color": "#ff0000"
+      "color": "#470228"
     }
   }
 }</code></pre>
