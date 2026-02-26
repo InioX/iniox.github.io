@@ -225,7 +225,7 @@ function addCopyButtonsToHeaders(container = document) {
         btn.addEventListener('click', () => {
 
 
-            const url = `${baseHash}/${header.id}`;
+            const url = `${location.origin}${baseHash}/${header.id}`;
 
             navigator.clipboard.writeText(url).then(() => {
                 icon.innerHTML = `
