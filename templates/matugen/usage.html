@@ -74,26 +74,27 @@ matugen color hex &lt;hex color&gt; -m "light"</code></pre>
         <li><code>[config.import_json_files]</code></li>
     </ol>
 
-
     <h3>Import JSON from file</h3>
-    <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated json.</p>
     <md-card class="code-card">
-        <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+        <pre
+            class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; --import-json &lt;path&gt;</code></pre>
     </md-card>
 
     <p><strong>Example:</strong></p>
     <md-card class="code-card">
-        <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+        <pre
+            class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --import-json ./example/custom.json</code></pre>
     </md-card>
 
     <h3>Import JSON from string</h3>
-    <p>Not to be confused with <code>--import-json</code> flag, this one outputs the generated json.</p>
     <md-card class="code-card">
-        <pre class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; -m light</code></pre>
+        <pre
+            class="code-block"><code class="language-bash">matugen &lt;other-arguments&gt; --import-json-string &lt;json string&gt;</code></pre>
     </md-card>
 
     <p><strong>Example:</strong></p>
     <md-card class="code-card">
-        <pre class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --json rgb</code></pre>
+        <pre
+            class="code-block"><code class="language-bash">matugen color hex "#ffbf9b" --import-json-string '{ "text3": "Hello from args!"}'</code></pre>
     </md-card>
 </div>
