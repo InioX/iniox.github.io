@@ -21,6 +21,16 @@
     }
 }
 
+.table-icon {
+    fill: var(--md-sys-color-primary)
+}
+
+.header-svg {
+    width: 48px;
+    height: 48px;
+    fill: var(--md-sys-color-on-surface);
+}
+
 /* @media (min-width: 900px) {
     .toc {
         top: 96px;
