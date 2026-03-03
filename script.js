@@ -108,10 +108,14 @@ function attachPageListeners() {
         });
     });
 
-    document.getElementById("change-mode-button").addEventListener("click", () => {
-        isDarkMode = !isDarkMode;
-        renderTheme();
-    });
+    const mode = document.getElementById("change-mode-button")
+
+    if (mode) {
+        mode.addEventListener("click", () => {
+            isDarkMode = !isDarkMode;
+            renderTheme();
+        });
+    }
 }
 
 async function switchTab(index) {
@@ -125,9 +129,9 @@ async function switchTab(index) {
     content.innerHTML = "";
 
     await content.appendChild(template.content.cloneNode(true));
-    applyDynamicTheme()
-    attachPageListeners()
-    addCopyButtonsToHeaders()
+    await applyDynamicTheme()
+    await attachPageListeners()
+    await addCopyButtonsToHeaders()
 
     if (content) {
         generateTOC(content);
@@ -169,8 +173,8 @@ async function handleHash(hash) {
 
                     if (lastBtn) {
                         fakeClick(lastBtn);
-                        setTimeout(() => {
-                            const newHeader = document.getElementById(lastPart);
+                        setTimeout(async () => {
+                            const newHeader = await document.getElementById(lastPart);
                             if (newHeader) {
                                 newHeader.scrollIntoView({ behavior: "smooth", block: 'center' });
                                 flash(newHeader);
