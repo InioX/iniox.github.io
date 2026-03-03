@@ -12,14 +12,15 @@
 
     <p>Matugen uses templates with keywords inside of them. First it replaces those keywords and then writes the
         replaced text to a file. Templates can be files with any file extension with text inside of them that uses the
-        UTF-8 encoding.</p>
+        <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank" rel="noopener noreferrer">UTF-8 encoding</a>.
+    </p>
     <p>Keywords are used inside of these brackets <code>{{ }}</code>. For more advanced functions you can use the block
         syntax <code>&lt;* *&gt;</code>. You can also modify the syntax in your configuration.</p>
-    <p>Matugen generates Material Design 3 and base16 colors. You can also import custom json through the config, CLI or
-        overwrite it by providing json as a string argument. You can then use the imported json in your templates.</p>
+    <p>Matugen generates Material Design 3 and base16 colors. You can also import custom JSON through the config, CLI or
+        overwrite it by providing JSON as a string argument. You can then use the imported JSON in your templates.</p>
 
     <md-outlined-button trailing-icon href="https://iniox.github.io/#matugen/usage/importing-json">
-        More about importing json
+        More about importing JSON
         <svg slot="icon" viewBox="0 0 48 48">
             <path
                 d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
@@ -27,13 +28,10 @@
     </md-outlined-button>
 
     <h4>Template syntax and colors</h4>
-    <md-filled-button trailing-icon href="https://iniox.github.io/#matugen/templates/colors-and-variables">
-        More about syntax and colors
-        <svg slot="icon" viewBox="0 0 48 48">
-            <path
-                d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z" />
-        </svg>
-    </md-filled-button>
+    <p>Matugen has keywords for colors and templates that you use for theming. Check <a
+            href="https://iniox.github.io/#matugen/templates/colors-and-variables" target="_blank"
+            rel="noopener noreferrer">this section</a> to see all colors and syntax you should use.</p>
+
 
     <h2>Making a template for waybar</h2>
 
@@ -117,7 +115,8 @@ post_hook = "pkill -SIGUSR2 waybar"</code></pre>
 
     <h2>Automatically setting the wallpaper from the configuration</h2>
 
-    <p>We will be using swww to set the wallpaper when all templates get generated.</p>
+    <p>We will be using <a href="https://codeberg.org/LGFae/awww" target="_blank" rel="noopener noreferrer">awww
+            (swww)</a> to set the wallpaper when all templates get generated.</p>
 
     <md-card class="code-card">
         <pre class="code-block"><code class="language-toml">[config]
