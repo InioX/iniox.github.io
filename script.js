@@ -1,5 +1,5 @@
 
-import { Scheme, argbFromHex, themeFromImage, themeFromSourceColor, applyTheme } from "https://esm.run/@material/material-color-utilities";
+import { themeFromImage, applyTheme } from "https://esm.run/@material/material-color-utilities";
 
 import '@material/web/all.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
@@ -10,7 +10,7 @@ const tabMap = [
     "matugen"
 ]
 
-let currentTheme = themeFromSourceColor(argbFromHex('#4285F4'));
+let currentTheme = null;
 let isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 let currentTab = null;
 let isProgrammaticNavigation = false;

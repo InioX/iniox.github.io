@@ -10,6 +10,12 @@
     }
     </script>
     <link rel="stylesheet" href="style.css">
+    <script type="module">
+        import { argbFromHex, themeFromSourceColor, applyTheme } from "https://esm.run/@material/material-color-utilities";
+        const defaultBlue = themeFromSourceColor(argbFromHex('#4285F4'));
+        const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        applyTheme(defaultBlue, { target: document.body, dark: isDark });
+    </script>
     <script type="module" src="script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
