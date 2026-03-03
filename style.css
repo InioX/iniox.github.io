@@ -35,8 +35,20 @@
     }
 } */
 
-.svg-icon {
-    fill: var(--md-sys-color-primary);
+h2:hover,
+h3:hover,
+h4:hover {
+    background: color-mix(in srgb,
+            var(--md-sys-color-surface) 85%,
+            var(--md-sys-color-surface-variant) 20%) !important;
+    border-radius: 8px;
+    cursor: default;
+}
+
+.version-badge {
+    height: 22px;
+    margin-left: auto;
+    border-radius: 6px;
 }
 
 .toc {
@@ -156,7 +168,9 @@ code {
 }
 
 :not(pre)>code {
-    background-color: var(--md-sys-color-surface-container-high) !important;
+    background: color-mix(in srgb,
+            var(--md-sys-color-surface) 85%,
+            var(--md-sys-color-surface-variant) 20%) !important;
     color: var(--md-sys-color-primary);
     padding: 2px 6px;
     border-radius: 6px;
