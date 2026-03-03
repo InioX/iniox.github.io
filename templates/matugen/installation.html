@@ -16,10 +16,10 @@
     <br>
     <md-divider></md-divider>
 
-    <h2>AUR</h2>
+    <h2>Arch</h2>
     <p>Replace yay with your favorite AUR helper</p>
     <md-card class="code-card">
-        <pre class="code-block"><code class="language-bash">yay -S matugen-bin</code></pre>
+        <pre class="code-block"><code class="language-bash">sudo pacman -S matugen</code></pre>
     </md-card>
 
     <br>
@@ -27,12 +27,12 @@
 
     <h2>NetBsd</h2>
 
-    <h3 data-no-copy>Using pkgin</h3>
+    <h3>Using pkgin</h3>
     <md-card class="code-card">
         <pre class="code-block"><code class="language-bash">pkgin install matugen</code></pre>
     </md-card>
 
-    <h3 data-no-copy>From source</h3>
+    <h3>From source</h3>
     <md-card class="code-card">
         <pre class="code-block"><code class="language-bash">cd /usr/pkgsrc/graphics/matugen
 make install</code></pre>
@@ -66,7 +66,7 @@ in {
 }</code></pre>
     </md-card>
 
-    <h3 data-no-copy>NixOS/Home Manager module</h3>
+    <h3>NixOS/Home Manager module</h3>
     <p>This flake also provides a NixOS/Home Manager module, which can be imported by adding this in your
         configuration</p>
 

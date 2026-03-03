@@ -10,6 +10,8 @@ const tabMap = [
     "matugen"
 ]
 
+let currentTheme = null;
+let isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 let currentTab = null;
 let isProgrammaticNavigation = false;
 
@@ -49,10 +51,15 @@ async function applyDynamicTheme() {
 
     await waitForImage(img);
 
-    const theme = await themeFromImage(img);
-    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    currentTheme = await themeFromImage(img);
 
-    applyTheme(theme, { dark: systemDark });
+    renderTheme();
+}
+
+function renderTheme() {
+    if (currentTheme) {
+        applyTheme(currentTheme, { target: document.body, dark: isDarkMode });
+    }
 }
 
 async function switchPage(btn) {
@@ -99,6 +106,11 @@ function attachPageListeners() {
 
             location.hash = btn.dataset.hash;
         });
+    });
+
+    document.getElementById("change-mode-button").addEventListener("click", () => {
+        isDarkMode = !isDarkMode;
+        renderTheme();
     });
 }
 
