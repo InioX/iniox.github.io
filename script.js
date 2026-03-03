@@ -1,5 +1,5 @@
 
-import { Scheme, argbFromHex, themeFromImage, applyTheme } from "https://esm.run/@material/material-color-utilities";
+import { Scheme, argbFromHex, themeFromImage, themeFromSourceColor, applyTheme } from "https://esm.run/@material/material-color-utilities";
 
 import '@material/web/all.js';
 import { styles as typescaleStyles } from '@material/web/typography/md-typescale-styles.js';
@@ -10,7 +10,7 @@ const tabMap = [
     "matugen"
 ]
 
-let currentTheme = null;
+let currentTheme = themeFromSourceColor(argbFromHex('#4285F4'));
 let isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 let currentTab = null;
 let isProgrammaticNavigation = false;
@@ -63,6 +63,8 @@ function renderTheme() {
 }
 
 async function switchPage(btn) {
+    toggleLoading(true);
+
     const content = document.getElementById("pageContent");
     const divider = document.getElementById("headerDivider");
 
@@ -90,6 +92,8 @@ async function switchPage(btn) {
         generateTOC(content);
         Prism.highlightAllUnder(content);
     }
+
+    toggleLoading(false);
 }
 
 function attachPageListeners() {
@@ -119,6 +123,8 @@ function attachPageListeners() {
 }
 
 async function switchTab(index) {
+    toggleLoading(true);
+
     if (currentTab === index) return;
     currentTab = index;
 
@@ -129,14 +135,17 @@ async function switchTab(index) {
     content.innerHTML = "";
 
     await content.appendChild(template.content.cloneNode(true));
-    await applyDynamicTheme()
-    await attachPageListeners()
-    await addCopyButtonsToHeaders()
+    attachPageListeners()
+    addCopyButtonsToHeaders()
 
     if (content) {
         generateTOC(content);
         Prism.highlightAllUnder(content);
     }
+
+    applyDynamicTheme().catch(console.error).then(() => {
+        toggleLoading(false);
+    });
 }
 
 async function handleHash(hash) {
@@ -200,6 +209,29 @@ async function handleHash(hash) {
     });
 };
 
+function toggleLoading(show) {
+    const bar = document.getElementById("loading-bar");
+    if (!bar) return;
+
+    if (show) {
+        if (bar.hideTimeout) clearTimeout(bar.hideTimeout);
+
+        bar.style.display = "block";
+        requestAnimationFrame(() => {
+            bar.classList.add("visible");
+        });
+    } else {
+        bar.hideTimeout = setTimeout(() => {
+            bar.classList.remove("visible");
+
+            setTimeout(() => {
+                if (!bar.classList.contains('visible')) {
+                    bar.style.display = "none";
+                }
+            }, 300);
+        }, 600);
+    }
+}
 
 function flash(element) {
     element.style.animation = "flash 0.8s ease-in-out 2";

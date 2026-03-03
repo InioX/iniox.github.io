@@ -2,6 +2,7 @@
     color-scheme: dark;
 
     --code-font: 'Fira Code', 'Roboto Mono', monospace;
+    --md-linear-progress-track-color: transparent
 }
 
 @keyframes flash {
@@ -34,6 +35,27 @@
         display: block;
     }
 } */
+
+#loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    margin-bottom: 10px;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-5px);
+    pointer-events: none;
+}
+
+#loading-bar.visible {
+    opacity: 1;
+    transform: translateY(0);
+    /* Slide down into view */
+    pointer-events: auto;
+}
 
 h2:hover,
 h3:hover,
