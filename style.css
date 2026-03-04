@@ -11,9 +11,7 @@
     }
 
     50% {
-        background-color: color-mix(in srgb,
-                var(--md-sys-color-surface) 70%,
-                var(--md-sys-color-secondary) 30%);
+        background-color: var(--md-sys-color-secondary-container);
     }
 
     100% {
@@ -70,9 +68,7 @@
 h2:hover,
 h3:hover,
 h4:hover {
-    background: color-mix(in srgb,
-            var(--md-sys-color-surface) 85%,
-            var(--md-sys-color-surface-variant) 20%) !important;
+    background: var(--md-sys-color-surface-container-highest) !important;
     border-radius: 8px;
     cursor: default;
 }
@@ -87,9 +83,7 @@ h4:hover {
     margin: 16px 0;
     padding: 20px;
     border-radius: 16px;
-    background: color-mix(in srgb,
-            var(--md-sys-color-surface) 85%,
-            var(--md-sys-color-surface-variant) 20%) !important;
+    background: var(--md-sys-color-surface-container-low) !important;
     border: 1px solid var(--md-sys-color-outline-variant);
 }
 
@@ -164,9 +158,7 @@ h4:hover {
 
 
 .code-block {
-    background: color-mix(in srgb,
-            var(--md-sys-color-surface) 85%,
-            var(--md-sys-color-surface-variant) 20%) !important;
+    background: var(--md-sys-color-surface-container-high) !important;
     color: var(--md-sys-color-on-surface);
 
     padding: 16px;
@@ -184,9 +176,7 @@ h4:hover {
 pre[class*="language-"],
 code[class*="language-"],
 code {
-    background: color-mix(in srgb,
-            var(--md-sys-color-surface) 85%,
-            var(--md-sys-color-surface-variant) 20%) !important;
+    background: var(--md-sys-color-surface-container) !important;
     border-radius: 10px;
     padding: 1.5px;
 }
@@ -200,9 +190,7 @@ code {
 }
 
 :not(pre)>code {
-    background: color-mix(in srgb,
-            var(--md-sys-color-surface) 85%,
-            var(--md-sys-color-surface-variant) 20%) !important;
+    background: var(--md-sys-color-surface-container) !important;
     color: var(--md-sys-color-primary);
     padding: 2px 6px;
     border-radius: 6px;
@@ -351,17 +339,13 @@ md-divider {
 table {
     width: 100%;
     border-collapse: collapse;
-    background: color-mix(in srgb,
-            var(--md-sys-color-surface) 85%,
-            var(--md-sys-color-surface-variant) 20%) !important;
+    background: var(--md-sys-color-surface-container-low) !important;
     font-family: var(--md-sys-typescale-body-medium-font);
     letter-spacing: var(--md-sys-typescale-body-medium-tracking);
 }
 
 th {
-    background: color-mix(in srgb,
-            var(--md-sys-color-surface) 85%,
-            var(--md-sys-color-surface-variant) 60%) !important;
+    background: var(--md-sys-color-surface-container-high) !important;
     color: var(--md-sys-color-on-surface-variant);
     font-weight: 500;
     text-align: left;
@@ -416,7 +400,7 @@ a {
 }
 
 a:hover {
-    background-color: color-mix(in srgb, var(--md-sys-color-primary) 8%, transparent);
+    background-color: var(--md-sys-color-surface-container-high);
     color: var(--md-sys-color-primary);
     text-decoration: underline;
     text-underline-offset: 4px;
@@ -447,7 +431,7 @@ a[target="_blank"]::after {
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: var(--md-sys-color-surface-container);
+    background-color: var(--md-sys-color-surface);
     padding: 10px;
     border-radius: 20px;
 }
