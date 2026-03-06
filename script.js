@@ -66,7 +66,7 @@ async function switchPage(btn) {
 }
 
 function attachPageListeners() {
-    const buttons = document.querySelectorAll(".button-row md-outlined-button, .button-row md-filled-button, .header-left md-filled-button");
+    const buttons = document.querySelectorAll(".button-row md-outlined-button, .button-row md-filled-button, .button-row md-filled-tonal-button, .header-left md-filled-tonal-button");
 
     buttons.forEach(async btn => {
         btn.addEventListener("click", e => {
