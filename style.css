@@ -19,6 +19,12 @@
     }
 }
 
+.version-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .table-icon {
     fill: var(--md-sys-color-primary)
 }
