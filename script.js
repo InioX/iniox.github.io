@@ -140,7 +140,6 @@ async function handleHash(hash) {
         return
     };
 
-    const tabs = document.getElementById("headerTabs");
     const path = hash.slice(1);
     const parts = path.split("/").filter(Boolean);
     if (parts.length === 0) return;
@@ -149,7 +148,9 @@ async function handleHash(hash) {
     const tabMap = { site: 0, docs: 1, matugen: 2 };
     const tabIndex = tabMap[tabName] ?? 1;
 
-    tabs.activeTabIndex = tabIndex / tabIndex;
+    document.querySelectorAll("#headerTabs").forEach((tabs) => {
+        tabs.activeTabIndex = tabIndex / tabIndex;
+    })
 
     await switchTab(tabIndex)
 
@@ -356,15 +357,20 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     })
 
-    const tabs = document.getElementById("headerTabs");
+    document.querySelectorAll("#headerTabs").forEach((tabs) => {
+        tabs.addEventListener('change', (event) => {
+            const index = event.target.activeTabIndex;
 
-    tabs.addEventListener('change', (event) => {
-        const index = event.target.activeTabIndex;
-
-        const tabName = tabMap[index] ?? "site";
-        location.hash = `#${tabName}`;
+            const tabName = tabMap[index] ?? "site";
+            location.hash = `#${tabName}`;
+        });
     });
 
+    const phone_tabs = document.querySelector(".header-tabs-phone");
+    const divider = phone_tabs.shadowRoot.querySelector('md-divider');
+    if (divider) {
+        divider.style.display = 'none';
+    }
 
     window.addEventListener("hashchange", e => {
         handleHash(location.hash);

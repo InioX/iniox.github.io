@@ -210,14 +210,6 @@ code {
     width: 100%;
 }
 
-@media (max-width: 600px) {
-    .header-image {
-        max-height: 200px;
-        border-radius: 15px;
-    }
-}
-
-
 .header-copy-btn {
     display: inline-flex;
     vertical-align: middle;
@@ -232,13 +224,49 @@ code {
     height: 20px;
 }
 
-.header-tabs {
-    position: sticky;
-    top: 0;
+.header-tabs-phone-div {
+    bottom: 0;
+    position: fixed;
     z-index: 99;
-    display: block;
     width: 100%;
     padding: 0;
+}
+
+.header-tabs {
+    top: 0;
+    position: sticky;
+    z-index: 99;
+    width: 100%;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .header-image {
+        max-height: 200px;
+        border-radius: 15px;
+    }
+
+    #to-top {
+        bottom: 5rem;
+    }
+
+    .header-tabs {
+        display: none
+    }
+
+    .header-tabs-phone-div {
+        display: block
+    }
+}
+
+@media (min-width: 600px) {
+    .header-tabs {
+        display: block
+    }
+
+    .header-tabs-phone-div {
+        display: none
+    }
 }
 
 .profile-pic {
