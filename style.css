@@ -271,8 +271,8 @@ code {
 
 .profile-pic {
     position: absolute;
-    bottom: 50px;
-    width: clamp(80px, 25%, 175px);
+    bottom: 45px;
+    width: clamp(125px, 30%, 225px);
     height: auto;
     border-radius: 50%;
     object-fit: cover;
@@ -281,6 +281,23 @@ code {
     transform: translateX(-50%);
     box-shadow: 0 4px 10px #0000004d;
 }
+
+@media (min-width: 600px) {
+    .header-tabs {
+        display: block
+    }
+
+    .header-tabs-phone-div {
+        display: none
+    }
+
+    .profile-pic {
+        width: clamp(80px, 25%, 175px);
+
+    }
+}
+
+
 
 .header-image {
     height: 250px;
@@ -332,7 +349,7 @@ md-divider {
     margin-bottom: 2.5%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .button-row {
         flex-direction: column;
         gap: 8px;
