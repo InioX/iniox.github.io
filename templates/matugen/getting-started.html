@@ -216,6 +216,11 @@ post_hook = "pkill -SIGUSR2 waybar"</code></pre>
         <code>--prefer</code> flags.
     </p>
     <p>
+        If you do not want to choose a scheme type or the light/dark mode
+        yourself, you can use <code>--type scheme-smart</code> and
+        <code>--mode smart</code>.
+    </p>
+    <p>
         To see more output we will use the <code>--verbose</code> flag, and
         <code>--show-colors</code> to see all of the colors.
     </p>
@@ -231,7 +236,7 @@ post_hook = "pkill -SIGUSR2 waybar"</code></pre>
     <md-card class="code-card">
         <pre
             class="code-block"
-        ><code class="language-bash">matugen image /path/to/image --verbose --show-colors</code></pre>
+        ><code class="language-bash">matugen image /path/to/image --verbose --show-colors --type scheme-smart --mode smart</code></pre>
     </md-card>
 
     <h2>Matugen themes repository</h2>
