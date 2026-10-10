@@ -1,0 +1,26 @@
+:root {
+  --page-background-color: #06c;
+  --page-background-color: #ffffff;
+  --card-background-color: #ffffff;
+  --accent-color: #516d85;
+  --secondary-color: #96b1c2;
+  --tertiary-color: #849f9c;
+  --separator-color: #4f7671;
+}
+
+.centered {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.header {
+  text-align: center;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
