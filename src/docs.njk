@@ -1,0 +1,12 @@
+---
+layout: base.njk
+title: Docs
+---
+<h1>Docs</h1>
+<ul>
+{% for p in projects %}
+  <li>
+    <a href="/docs/{{ p.name | slugify }}/">{{ p.name }}</a>: {{ p.desc }}
+  </li>
+{% endfor %}
+</ul>

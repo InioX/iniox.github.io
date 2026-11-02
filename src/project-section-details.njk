@@ -1,0 +1,20 @@
+---
+layout: base.njk
+pagination:
+  data: collections.allSections
+  size: 1
+  alias: item
+permalink: "docs/{{ item.projectSlug }}/{{ item.sectionId }}/"
+eleventyComputed:
+  title: "{{ item.sectionTitle }} - {{ item.projectName }}"
+---
+
+<nav>
+  <a href="/docs/{{ item.projectSlug }}">← Back</a>
+</nav>
+
+<h1>{{ item.sectionTitle }}</h1>
+
+<main class="section-content">
+  {% include "docs/" + item.sectionFile %}
+</main>

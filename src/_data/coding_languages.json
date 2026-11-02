@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Rust",
+    "link": "https://rust-lang.org/"
+  },
+  {
+    "name": "Javascript",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  },
+  {
+    "name": "Typescript",
+    "link": "https://www.typescriptlang.org/"
+  },
+  {
+    "name": "Python",
+    "link": "https://www.python.org/"
+  },
+  {
+    "name": "Bash",
+    "link": "https://www.gnu.org/software/bash/"
+  },
+  {
+    "name": "CSS",
+    "link": "https://iniox.github.io/www.w3.org/Style/CSS/Overview.en.html"
+  },
+  {
+    "name": "HTML",
+    "link": "https://www.w3.org/html/"
+  },
+  {
+    "name": "Kotlin",
+    "link": "https://kotlinlang.org/"
+  },
+  {
+    "name": "Nix",
+    "link": "https://nixos.org/"
+  },
+  {
+    "name": "NodeJS",
+    "link": "https://nodejs.org/en"
+  },
+  {
+    "name": "React",
+    "link": "https://react.dev/"
+  },
+  {
+    "name": "MongoDB",
+    "link": "https://www.mongodb.com/"
+  }
+]

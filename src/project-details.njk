@@ -1,0 +1,26 @@
+---
+layout: base.njk
+pagination:
+  data: projects
+  size: 1
+  alias: project
+permalink: "docs/{{ project.name | slugify }}/"
+eleventyComputed:
+  title: "{{ project.name }}"
+---
+
+<nav>
+  <a href="/docs/">← Back</a>
+</nav>
+
+<h1>{{ project.name }}</h1>
+<p>{{ project.desc }}</p>
+
+<h2>Documentation Sections</h2>
+<ul>
+  {% for section in project.sections %}
+    <li>
+      <a href="/docs/{{ project.name | slugify }}/{{ section.id }}/">{{ section.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

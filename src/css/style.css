@@ -8,6 +8,17 @@
   --separator-color: #4f7671;
 }
 
+.language-icon svg {
+  fill: #ffffff;
+  width: 24px;
+  height: 24px;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
 .centered {
   display: grid;
   justify-content: center;

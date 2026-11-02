@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Matugen",
+    "desc": "A cross-platform material you and base16 color generation tool",
+    "sections": [
+      {
+        "id": "installation",
+        "title": "Installation",
+        "file": "matugen/installation.html"
+      },
+      {
+        "id": "usage",
+        "title": "Usage",
+        "file": "matugen/usage.html"
+      }
+    ]
+  }
+]
