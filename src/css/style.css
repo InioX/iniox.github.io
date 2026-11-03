@@ -8,6 +8,91 @@
   --separator-color: #4f7671;
 }
 
+.centered {
+  text-align: center;
+}
+
+.navbar {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.code-block code {
+  display: block;
+  white-space: pre;
+  background: transparent !important;
+  padding: 0;
+  border-radius: 0;
+}
+
+.code-block {
+  padding: 16px;
+  border-radius: 16px;
+  overflow-x: auto;
+  font-family: var(--code-font);
+  font-size: clamp(13px, 0.9rem, 15px);
+
+  scrollbar-width: thin;
+  /* scrollbar-color: var(--md-sys-color-outline-variant) transparent; */
+}
+
+.nav-item hr {
+  width: 100%;
+  border: none;
+  height: 3px;
+  background-color: transparent;
+  margin: 0;
+  transition: background-color 0.2s ease;
+}
+
+.nav-item a.active + hr,
+.nav-item a[aria-current="page"] + hr {
+  background-color: var(--accent-color, #516d85);
+}
+
+.nav-item a.active,
+.nav-item a[aria-current="page"] {
+  font-weight: 500;
+}
+
 .language-icon svg {
   fill: #ffffff;
   width: 24px;
@@ -17,17 +102,54 @@
 body {
   background-color: black;
   color: white;
+  /* margin: 0px; */
+  padding: 20px;
+
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.body,
+page-content p {
+  font-size: clamp(14px, 4vw, 18px);
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 2.5%;
 }
 
 .centered {
   display: grid;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
+
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .header {
   text-align: center;
+}
+
+.page-header-text {
+  font-weight: bold;
+  margin-bottom: 0px;
 }
 
 .button-row {

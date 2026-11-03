@@ -2,26 +2,28 @@
 layout: base.njk
 title: Home
 ---
+<div class="page-content">
+<div class="centered">
 <h1>About Me</h1>
 
 <p>
     Hi, my name is Ini.
-</p>
-<p>
+    <br>
+    <br>
     I am an electrical engineering student from Czechia with a strong interest in how hardware and software work.
-</p>
-<p>
+    <br>
+    <br>
     Most of my free time is spent working with Linux, experimenting with programming languages, and building tools
     or small projects that help me better understand technology at a deeper level.<br>I enjoy learning by doing,
     especially when it involves low-level concepts, system design, or clean, well-structured code. That's why i
     mainly code in <a href="https://rust-lang.org/" target="_blank" rel="noopener noreferrer">Rust</a>.
-</p>
-<p>
+    <br>
+    <br>
     I also care a lot about design and usability. I am particularly fond of <a href="https://m3.material.io/"
         target="_blank" rel="noopener noreferrer">Material Design 3</a>, and
     colorscheme theory in general.
-</p>
-<p>
+    <br>
+    <br>
     You can find most of my work, along with things I am currently learning or exploring, on my <a
         href="https://github.com/InioX" target="_blank" rel="noopener noreferrer">GitHub profile</a>.
 </p>
@@ -33,11 +35,14 @@ title: Home
 {% for l in coding_languages %}
   <li>
     <span class="language-icon">
-      {% include "icons/" + (l.name | slugify) + ".svg" %}
+      {% include "icons/languages/" + (l.name | slugify) + ".svg" %}
     </span>
     <a href="{{ l.link }}">{{ l.name }}</a>
   </li>
 {% endfor %}
 </ul>
+</div>
 
 <p><a href="/docs/">See all projects →</a></p>
+
+</div>

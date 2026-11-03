@@ -9,12 +9,21 @@ eleventyComputed:
   title: "{{ item.sectionTitle }} - {{ item.projectName }}"
 ---
 
+<div class="page-content">
+
 <nav>
   <a href="/docs/{{ item.projectSlug }}">← Back</a>
 </nav>
+
+<div class="centered">
+{% set project = item.project %}
+  {% include "project-header.njk" %}
+</div>
 
 <h1>{{ item.sectionTitle }}</h1>
 
 <main class="section-content">
   {% include "docs/" + item.sectionFile %}
 </main>
+
+</div>

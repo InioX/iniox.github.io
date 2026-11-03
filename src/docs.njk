@@ -2,11 +2,16 @@
 layout: base.njk
 title: Docs
 ---
+<div class="page-content">
+<div class="centered">
+
 <h1>Docs</h1>
-<ul>
-{% for p in projects %}
-  <li>
-    <a href="/docs/{{ p.name | slugify }}/">{{ p.name }}</a>: {{ p.desc }}
-  </li>
-{% endfor %}
-</ul>
+  <ul>
+  {% for p in projects %}
+    <li>
+      <a href="/docs/{{ p.name | slugify }}/">{{ p.name }}</a>: {{ p.desc }}
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+</div>

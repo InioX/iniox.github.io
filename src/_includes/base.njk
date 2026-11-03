@@ -5,13 +5,41 @@
   <meta charset="utf-8">
   <title>{{ title }}</title>
   <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/script.js" defer></script>
 </head>
 <body>
-  <nav class="site-nav">
-    <a href="/">Home</a>
-    <a href="/docs/">Docs</a>
-    <a href="/blogs/">Blogs</a>
+<nav class="navbar">
+    <ul class="nav-links">
+      <li class="nav-item">
+        <a href="/" {% if page.url == "/" %}class="active" aria-current="page"{% endif %}>
+          <span class="nav-icon">
+            {% include "icons/navbar/home.svg" %}
+          </span>
+          <span class="nav-text">Home</span>
+        </a>
+        <hr/>
+      </li>
+      <li class="nav-item">
+        <a href="/docs/" {% if page.url.startsWith('/docs/') %}class="active" aria-current="page"{% endif %}>
+          <span class="nav-icon">
+            {% include "icons/navbar/docs.svg" %}
+          </span>
+          <span class="nav-text">Docs</span>
+        </a>
+        <hr/>
+      </li>
+      <li class="nav-item">
+        <a href="/blogs/" {% if page.url.startsWith('/blogs/') %}class="active" aria-current="page"{% endif %}>
+          <span class="nav-icon">
+            {% include "icons/navbar/blogs.svg" %}
+          </span>
+          <span class="nav-text">Blogs</span>
+        </a>
+        <hr/>
+      </li>
+    </ul>
   </nav>
+
   <main>{{ content | safe }}</main>
   <footer>© 2026</footer>
 </body>

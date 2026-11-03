@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/js");
 
   eleventyConfig.addCollection("allSections", function(collectionApi) {
     let sections = [];
@@ -14,7 +15,8 @@ module.exports = function (eleventyConfig) {
           projectSlug: project.name.toLowerCase(),
           sectionId: section.id,
           sectionTitle: section.title,
-          sectionFile: section.file
+          sectionFile: section.file,
+          project: project
         });
       });
     });
