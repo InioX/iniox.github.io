@@ -4,7 +4,13 @@ title: Home
 ---
 <div class="page-content">
 <div class="centered">
-<h1>About Me</h1>
+
+<h1 class="page-header-text">Welcome to my site!</h1>
+<p>You can read more about me and my projects below</p>
+
+<hr/>
+
+<h3>About Me</h3>
 
 <p>
     Hi, my name is Ini.
@@ -29,20 +35,30 @@ title: Home
 </p>
 
 
-<h4>My languages</h4>
+<h3>My languages</h3>
 
-<ul>
-{% for l in coding_languages %}
-  <li>
-    <span class="language-icon">
-      {% include "icons/languages/" + (l.name | slugify) + ".svg" %}
-    </span>
-    <a href="{{ l.link }}">{{ l.name }}</a>
-  </li>
-{% endfor %}
-</ul>
+<table class="languages-table">
+  {% for l in coding_languages %}
+    {# Start a new row every 2 items #}
+    {% if loop.index0 % 2 == 0 %}
+      <tr>
+    {% endif %}
+
+        <td>
+          <a href="{{ l.link }}" class="language-link">
+            <span class="language-icon">
+              {% include "icons/languages/" + (l.name | slugify) + ".svg" %}
+            </span>
+            <br>
+            <span class="language-name">{{ l.name }}</span>
+          </a>
+        </td>
+
+    {% if loop.index0 % 2 != 0 or loop.last %}
+      </tr>
+    {% endif %}
+  {% endfor %}
+</table>
+
 </div>
-
-<p><a href="/docs/">See all projects →</a></p>
-
 </div>

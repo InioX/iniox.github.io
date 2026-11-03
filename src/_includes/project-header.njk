@@ -1,0 +1,8 @@
+<h1 class="page-header-text">{{ project.name }}</h1>
+<p>{{ project.desc }}</p>
+
+{% for section in project.sections %}
+  <div class="button-row">
+    <a href="/docs/{{ project.name | slugify }}/{{ section.id }}/">{{ section.title }}</a>
+  </div>
+{% endfor %}

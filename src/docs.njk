@@ -5,13 +5,14 @@ title: Docs
 <div class="page-content">
 <div class="centered">
 
-<h1>Docs</h1>
-  <ul>
-  {% for p in projects %}
-    <li>
-      <a href="/docs/{{ p.name | slugify }}/">{{ p.name }}</a>: {{ p.desc }}
-    </li>
-  {% endfor %}
-  </ul>
+<h1 class="page-header-text">Welcome to the documentation!</h1>
+<p>You can read more about the projects below</p>
+
+<hr/>
+
+{% for p in projects %}
+    <a href="/docs/{{ p.name | slugify }}/"><h3 class="page-header-text">{{ p.name }}</h3></a>
+    <p>{{ p.desc }}</p>
+{% endfor %}
 </div>
 </div>

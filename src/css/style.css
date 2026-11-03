@@ -8,17 +8,64 @@
   --separator-color: #4f7671;
 }
 
+hr {
+  width: 100%;
+  height: 1px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 2.5%;
+}
+
+@media (max-width: 600px) {
+  .button-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
 .centered {
   text-align: center;
 }
 
+body {
+  background-color: black;
+  color: white;
+  /* margin: 0px; */
+  padding: 80px 20px 20px 20px;
+
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
 .navbar {
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   display: flex;
   align-items: center;
   width: 100%;
   padding: 1rem 2rem;
   box-sizing: border-box;
+
+  background-color: black;
 }
 
 .nav-links {
@@ -55,6 +102,26 @@
   align-items: stretch;
 }
 
+@media (max-width: 600px) {
+  .navbar {
+    top: auto;
+    bottom: 0;
+  }
+
+  body {
+    padding-top: 20px;
+    padding-bottom: 80px;
+  }
+
+  .nav-item {
+    flex-direction: column-reverse;
+  }
+
+  .nav-icon {
+    margin-top: 10px;
+  }
+}
+
 .code-block code {
   display: block;
   white-space: pre;
@@ -77,15 +144,20 @@
 .nav-item hr {
   width: 100%;
   border: none;
-  height: 3px;
+  height: 1px;
   background-color: transparent;
   margin: 0;
   transition: background-color 0.2s ease;
 }
 
+/* .nav-item a + hr { */
+/*   background-color: grey; */
+/* } */
+
 .nav-item a.active + hr,
 .nav-item a[aria-current="page"] + hr {
   background-color: var(--accent-color, #516d85);
+  height: 2px;
 }
 
 .nav-item a.active,
@@ -97,22 +169,6 @@
   fill: #ffffff;
   width: 24px;
   height: 24px;
-}
-
-body {
-  background-color: black;
-  color: white;
-  /* margin: 0px; */
-  padding: 20px;
-
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-
-  overflow-x: hidden;
-  min-height: 100vh;
 }
 
 .body,
