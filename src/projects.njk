@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: About
+permalink: "/home/projects/"
+---
+
+<div class="page-content">
+<div class="centered">
+
+{% include "index-header.njk" %}
+
+<hr/>
+
+{% for p in projects %}
+    <a href="/docs/{{ p.name | slugify }}/"><h3 class="page-header-text">{{ p.name }}</h3></a>
+    <p>{{ p.desc }}</p>
+{% endfor %}
+
+</div>
+</div>

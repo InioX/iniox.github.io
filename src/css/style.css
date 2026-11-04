@@ -9,11 +9,6 @@
 }
 
 .header-image {
-  max-height: 200px;
-  border-radius: 15px;
-}
-
-.header-image {
   height: 250px;
   width: 100%;
   aspect-ratio: 16 / 6;
@@ -36,7 +31,7 @@ table {
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-bottom: 2.5%;
+  margin-bottom: 12px;
 }
 
 @media (max-width: 600px) {
@@ -44,10 +39,10 @@ table {
     flex-direction: column;
     gap: 8px;
   }
-}
 
-.centered {
-  text-align: center;
+  .header-image {
+    height: 200px;
+  }
 }
 
 body {
@@ -194,8 +189,8 @@ page-content p {
 }
 
 .centered {
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   /* height: 100vh; */
 

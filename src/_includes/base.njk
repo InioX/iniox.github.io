@@ -21,7 +21,7 @@
 <nav class="navbar">
     <ul class="nav-links">
       <li class="nav-item">
-        <a href="/" {% if page.url == "/" %}class="active" aria-current="page"{% endif %}>
+        <a href="/home/" {% if page.url.startsWith('/home/') %}class="active" aria-current="page"{% endif %}>
           <span class="nav-icon">
             {% include "icons/navbar/home.svg" %}
           </span>
