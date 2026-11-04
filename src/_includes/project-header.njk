@@ -1,3 +1,11 @@
+{% set imgPath = project.image if project.image else "/images/blue.gif" %}
+  
+<img
+    src="{{ imgPath }}"
+    alt="{{ project.name }} Header"
+    class="header-image"
+/>
+
 <h1 class="page-header-text">{{ project.name }}</h1>
 <p>{{ project.desc }}</p>
 

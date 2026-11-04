@@ -8,6 +8,20 @@
   --separator-color: #4f7671;
 }
 
+.header-image {
+  max-height: 200px;
+  border-radius: 15px;
+}
+
+.header-image {
+  height: 250px;
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
 hr {
   width: 100%;
   height: 1px;
@@ -40,7 +54,7 @@ body {
   background-color: black;
   color: white;
   /* margin: 0px; */
-  padding: 80px 20px 20px 20px;
+  padding: 90px 20px 20px 20px;
 
   font-size: 16px;
   font-family: "Roboto", sans-serif;
@@ -110,7 +124,7 @@ body {
 
   body {
     padding-top: 20px;
-    padding-bottom: 80px;
+    padding-bottom: 90px;
   }
 
   .nav-item {
