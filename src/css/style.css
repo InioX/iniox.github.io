@@ -193,13 +193,6 @@ page-content p {
   margin: 0 auto;
 }
 
-.button-row {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 2.5%;
-}
-
 .centered {
   display: grid;
   justify-content: center;
@@ -220,10 +213,4 @@ page-content p {
 .page-header-text {
   font-weight: bold;
   margin-bottom: 0px;
-}
-
-.button-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

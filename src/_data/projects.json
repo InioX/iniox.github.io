@@ -13,6 +13,11 @@
         "id": "usage",
         "title": "Usage",
         "file": "matugen/usage.html"
+      },
+      {
+        "id": "getting-started",
+        "title": "Getting started",
+        "file": "matugen/getting-started.html"
       }
     ]
   }
