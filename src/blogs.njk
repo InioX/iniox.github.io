@@ -14,11 +14,10 @@ title: Blogs
 <h1 class="page-header-text">Welcome to the blogs!</h1>
 <p>You can read some of my blogs below</p>
 
-<hr/>
+{% for post in collections.blog %}
+    <a href="{{ post.url }}/"><h3 class="page-header-text">{{ post.data.title }}</h3></a>
+    <p>{{ post.data.desc }}</p>
+{% endfor %}
 
-    {% for post in collections.blog %}
-      <a href="{{ post.url }}/"><h3 class="page-header-text">{{ post.data.title }}</h3></a>
-      <p>{{ post.data.desc }}</p>
-  {% endfor %}
 </div>
 </div>

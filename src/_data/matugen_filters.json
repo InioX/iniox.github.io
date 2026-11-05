@@ -1,0 +1,187 @@
+[
+  {
+    "name": "set_red",
+    "category": "Colors",
+    "description": "Sets the red channel of a color",
+    "example": "{{ \"#000000\" | to_color | set_red: 255 }}",
+    "arguments": [
+      "Int - the red channel value (0-255)"
+    ]
+  },
+  {
+    "name": "set_blue",
+    "category": "Colors",
+    "description": "Sets the blue channel of a color",
+    "example": "{{ \"#000000\" | to_color | set_blue: 255 }}",
+    "arguments": [
+      "Int - the blue channel value"
+    ]
+  },
+  {
+    "name": "set_green",
+    "category": "Colors",
+    "description": "Sets the green channel of a color",
+    "example": "{{ \"#000000\" | to_color | set_green: 255 }}",
+    "arguments": [
+      "Int - the green channel value (0-255)"
+    ]
+  },
+  {
+    "name": "set_alpha",
+    "category": "Colors",
+    "description": "Sets the alpha channel of a color",
+    "example": "{{ \"#000000\" | to_color | set_alpha: 0.1 }}",
+    "arguments": [
+      "Float - the alpha channel value (0.0-1.0)"
+    ]
+  },
+  {
+    "name": "set_hue",
+    "category": "Colors",
+    "description": "Sets the hue channel of a color",
+    "example": "{{ \"#000000\" | to_color | set_hue: 360 }}",
+    "arguments": [
+      "Int - the hue value (0-360)"
+    ]
+  },
+  {
+    "name": "set_saturation",
+    "category": "Colors",
+    "description": "Sets the saturation of a color",
+    "example": "{{ \"#000000\" | to_color | set_saturation: 100.0 }}",
+    "arguments": [
+      "Float - the saturation value (0-100)"
+    ]
+  },
+  {
+    "name": "set_lightness",
+    "category": "Colors",
+    "description": "Sets the lightness of a color",
+    "example": "{{ \"#000000\" | to_color | set_lightness: 100 }}",
+    "arguments": [
+      "Int - the lightness value (0-100)"
+    ]
+  },
+  {
+    "name": "lighten",
+    "category": "Colors",
+    "description": "Lightens a color",
+    "example": "{{ \"#ffffff\" | to_color | lighten: 20.0 }}",
+    "arguments": [
+      "Float - amount to adjust lightness by"
+    ]
+  },
+  {
+    "name": "to_color",
+    "category": "Colors",
+    "description": "Parses a CSS color string into a color",
+    "example": "{{ \"#ff00ff\" | to_color }}",
+    "arguments": []
+  },
+  {
+    "name": "invert",
+    "category": "Colors",
+    "description": "Inverts a color",
+    "example": "{{ \"#ffffff\" | to_color | invert }}",
+    "arguments": []
+  },
+  {
+    "name": "grayscale",
+    "category": "Colors",
+    "description": "Converts a color to grayscale",
+    "example": "{{ \"#ff0000\" | to_color | grayscale }}",
+    "arguments": []
+  },
+  {
+    "name": "auto_lightness",
+    "category": "Colors",
+    "description": "Automatically lightens or darkens a color based on its current lightness\n If the color is dark, it will be lightened. If it is light, it will be darkened.",
+    "example": "{{ \"#222222\" | to_color | auto_lightness: 10.0 }}",
+    "arguments": [
+      "Float - amount to adjust lightness by"
+    ]
+  },
+  {
+    "name": "saturate",
+    "category": "Colors",
+    "description": "Adjusts the saturation of a color",
+    "example": "{{ \"#336699\" | to_color | saturate: 20.0, \"hsl\" }}",
+    "arguments": [
+      "Float - saturation amount",
+      "String - color space (hsl or hsv)"
+    ]
+  },
+  {
+    "name": "blend",
+    "category": "Colors",
+    "description": "Blends two colors together using hue blending",
+    "example": "{{ \"#ff0000\" | to_color | blend: {{ \"#0000ff\" | to_color }}, 0.5 }}",
+    "arguments": [
+      "Color - color to blend with",
+      "Float - blend amount (0.0 - 1.0)"
+    ]
+  },
+  {
+    "name": "harmonize",
+    "category": "Colors",
+    "description": "Harmonizes a color with another using harmonization\n This shifts the hue of the original color toward the target color.",
+    "example": "{{ \"#ff0000\" | to_color | harmonize: {{ \"#00ff00\" | to_color }}",
+    "arguments": [
+      "Color - color to harmonize with"
+    ]
+  },
+  {
+    "name": "format",
+    "category": "Colors",
+    "description": "Formats a color into a certain format just like what using the .format on a color keyword would. This is useful for colors that are defined in the templates as there is no way to format them otherwise.",
+    "example": "{{ \"#ff00ff\" | format: \"hex\" }}",
+    "arguments": [
+      "String - what to format the color into"
+    ]
+  },
+  {
+    "name": "snake_case",
+    "category": "String",
+    "description": "Converts a value to snake_case",
+    "example": "{{ \"Hello World\" | snake_case }}",
+    "arguments": []
+  },
+  {
+    "name": "lower_case",
+    "category": "String",
+    "description": "Converts a value to lowercase",
+    "example": "{{ \"Hello World\" | lower_case }}",
+    "arguments": []
+  },
+  {
+    "name": "camel_case",
+    "category": "String",
+    "description": "Converts a value to camelCase",
+    "example": "{{ \"hello world\" | camel_case }}",
+    "arguments": []
+  },
+  {
+    "name": "pascal_case",
+    "category": "String",
+    "description": "Converts a value to PascalCase",
+    "example": "{{ \"hello world\" | pascal_case }}",
+    "arguments": []
+  },
+  {
+    "name": "kebab_case",
+    "category": "String",
+    "description": "Converts a value to kebab-case",
+    "example": "{{ \"hello world\" | kebab_case }}",
+    "arguments": []
+  },
+  {
+    "name": "replace",
+    "category": "String",
+    "description": "Replaces all occurrences of a substring",
+    "example": "{{ \"hello world\" | replace: \"world\", \"there\" }}",
+    "arguments": [
+      "String - text to find",
+      "String - replacement text"
+    ]
+  }
+]

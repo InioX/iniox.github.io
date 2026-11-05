@@ -18,6 +18,26 @@
         "id": "getting-started",
         "title": "Getting started",
         "file": "matugen/getting-started.html"
+      },
+      {
+        "id": "configuration",
+        "title": "Configuration",
+        "file": "matugen/configuration.html"
+      },
+      {
+        "id": "features",
+        "title": "Features",
+        "file": "matugen/features.html"
+      },
+      {
+        "id": "templates",
+        "title": "Templates",
+        "file": "matugen/templates.html"
+      },
+      {
+        "id": "filters",
+        "title": "Filters",
+        "file": "matugen/filters.html"
       }
     ]
   }

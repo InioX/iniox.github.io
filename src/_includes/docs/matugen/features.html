@@ -1,0 +1,60 @@
+<p>For more information about features click the button below.</p>
+<button href="https://github.com/InioX/matugen/blob/main/Cargo.toml">
+  Check the Cargo.toml file here
+</button>
+
+<br /><br />
+<md-divider></md-divider>
+
+<h2>Default features</h2>
+<p>Matugen gets compiled with these features by default:</p>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>dump-json</code></td>
+        <td>✅</td>
+        <td>The ability to use the <code>--dump-json</code> flag.</td>
+      </tr>
+      <tr>
+        <td><code>web-image</code></td>
+        <td>❌</td>
+        <td>
+          The ability to use the <code>matugen web-image</code> subcommand.
+        </td>
+      </tr>
+      <tr>
+        <td><code>update-informer</code></td>
+        <td>❌</td>
+        <td>Will notify the user if there is an update available</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br />
+<md-divider></md-divider>
+
+<h2>Command examples for compiling</h2>
+
+<h3>Compiling with specific features</h3>
+<md-card class="code-card">
+  <pre
+    class="code-block"
+  ><code class="language-bash">cargo build --features "&lt;features seperated by space&gt;"</code></pre>
+</md-card>
+
+<h3>Compiling with all features</h3>
+<md-card class="code-card">
+  <pre
+    class="code-block"
+  ><code class="language-bash">cargo build --all-features</code></pre>
+</md-card>

@@ -23,16 +23,8 @@
   string argument. You can then use the imported JSON in your templates.
 </p>
 
-<button
-  trailing-icon
-  href="https://iniox.github.io/#matugen/usage/importing-json"
->
+<button href="https://iniox.github.io/#matugen/usage/importing-json">
   More about importing JSON
-  <svg slot="icon" viewBox="0 0 48 48">
-    <path
-      d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z"
-    />
-  </svg>
 </button>
 
 <h4>Template syntax and colors</h4>
@@ -57,7 +49,7 @@
 * Generated with Matugen
 */
 <* for name, value in colors *>
-@define-color {{name}} {{value.default.hex}};
+{% raw %}@define-color {{name}} {{value.default.hex}};{% endraw %}
 <* endfor *></code></pre>
 </md-card>
 
@@ -109,15 +101,9 @@ output_path = '~/.config/waybar/colors.css'</code></pre>
 <br />
 
 <button
-  trailing-icon
   href="https://iniox.github.io/#matugen/configuration/config-file-locations"
 >
   More about configuration paths
-  <svg slot="icon" viewBox="0 0 48 48">
-    <path
-      d="M9 42q-1.2 0-2.1-.9Q6 40.2 6 39V9q0-1.2.9-2.1Q7.8 6 9 6h13.95v3H9v30h30V25.05h3V39q0 1.2-.9 2.1-.9.9-2.1.9Zm10.1-10.95L17 28.9 36.9 9H25.95V6H42v16.05h-3v-10.9Z"
-    />
-  </svg>
 </button>
 
 <h2>Reloading waybar using a hook</h2>

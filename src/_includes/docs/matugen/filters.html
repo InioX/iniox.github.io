@@ -1,0 +1,19 @@
+<div class="filter-docs-container">
+  {% for doc in matugen_filters %}
+  <div class="filter-doc" data-category="{{ doc.category }}">
+    <h2>{{ doc.name }}</h2>
+    <p>{{ doc.description }}</p>
+
+    {% if doc.example %}
+    <pre class="code-block"><code>{{ doc.example }}</code></pre>
+    {% endif %} {% if doc.arguments | length > 0 %}
+    <h4>Arguments:</h4>
+    <ul>
+      {% for arg in doc.arguments %}
+      <li><code>{{ arg }}</code></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>

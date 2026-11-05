@@ -1,0 +1,523 @@
+    <h2>Basic Syntax</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Syntax</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Expression</strong> (Keyword)</td>
+                    <td><code>{{ expression }}</code></td>
+                    <td>Evaluates and outputs a value.</td>
+                </tr>
+                <tr>
+                    <td><strong>Block</strong></td>
+                    <td><code>&lt;* ... *&gt;</code></td>
+                    <td>Used for loops, conditionals and includes.</td>
+                </tr>
+                <tr>
+                    <td><strong>Escaping</strong></td>
+                    <td><code>{% raw %}\{{ ... }}{% endraw %}</code></td>
+                    <td>Escapes template output so it isn't evaluated.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Colors and variables</h2>
+
+    <p>You can use your own colors by <a href="https://iniox.github.io/#matugen/usage/importing-json" target="_blank"
+            rel="noopener noreferrer">importing JSON</a> or using the <a
+            href="https://iniox.github.io/#matugen/filters/to_color" target="_blank"
+            rel="noopener noreferrer">to_color</a> filter.</p>
+
+    <h3>Color formats</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Format</th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>hex</code></td>
+                    <td><code>#RRGGBB</code></td>
+                    <td><code>#470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>hex_stripped</code></td>
+                    <td><code>RRGGBB</code></td>
+                    <td><code>470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>hex_alpha</code></td>
+                    <td><code>#RRGGBBAA</code></td>
+                    <td><code>#470228ff</code></td>
+                </tr>
+                <tr>
+                    <td><code>hex_alpha_stripped</code></td>
+                    <td><code>RRGGBBAA</code></td>
+                    <td><code>#470228ff</code></td>
+                </tr>
+                <tr>
+                    <td><code>alpha_hex</code></td>
+                    <td><code>#AARRGGBB</code></td>
+                    <td><code>#ff470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>alpha_hex_stripped</code></td>
+                    <td><code>AARRGGBB</code></td>
+                    <td><code>ff470228</code></td>
+                </tr>
+                <tr>
+                    <td><code>rgb</code></td>
+                    <td><code>rgb(r, g, b)</code></td>
+                    <td><code>rgb(71, 2, 40)</code></td>
+                </tr>
+                <tr>
+                    <td><code>rgba</code></td>
+                    <td><code>rgba(r, g, b, a)</code></td>
+                    <td><code>rgba(71, 2, 40, 1.0)</code></td>
+                </tr>
+                <tr>
+                    <td><code>hsl</code></td>
+                    <td><code>hsl(h, s, l)</code></td>
+                    <td><code>hsl(332.2, 94.5%, 14.3%)</code></td>
+                </tr>
+                <tr>
+                    <td><code>hsla</code></td>
+                    <td><code>hsla(h, s, l, a)</code></td>
+                    <td><code>hsla(332.2, 94.5%, 14.3%, 1.0)</code></td>
+                </tr>
+                <tr>
+                    <td><code>red</code></td>
+                    <td><code>red</code> (0 - 255)</td>
+                    <td><code>71</code></td>
+                </tr>
+                <tr>
+                    <td><code>green</code></td>
+                    <td><code>green</code> (0 - 255)</td>
+                    <td><code>2</code></td>
+                </tr>
+                <tr>
+                    <td><code>blue</code></td>
+                    <td><code>blue</code> (0 - 255)</td>
+                    <td><code>34</code></td>
+                </tr>
+                <tr>
+                    <td><code>alpha</code></td>
+                    <td><code>alpha</code> (0.0 - 1.0)</td>
+                    <td><code>0.7</code></td>
+                </tr>
+                <tr>
+                    <td><code>hue</code></td>
+                    <td><code>hue</code> (0.0 - 360.0)</td>
+                    <td><code>332.2</code></td>
+                </tr>
+                <tr>
+                    <td><code>saturation</code></td>
+                    <td><code>saturation</code> (0.0 - 100.0)</td>
+                    <td><code>94.5%</code></td>
+                </tr>
+                <tr>
+                    <td><code>lightness</code></td>
+                    <td><code>lightness</code> (0.0 - 100.0)</td>
+                    <td><code>14.3%</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Material Design 3</h3>
+
+    <p><a href="https://m3.material.io/styles/color/system/overview" target="_blank" rel="noopener noreferrer">Material
+            Design 3 (MD3) colors</a>
+        focus on personalized, accessible, and dynamic schemes, using 5 key roles—Primary, Secondary, Tertiary, Neutral,
+        and Neutral Variant.</p>
+
+    <p><strong>Usage:</strong></p>
+    <md-card class="code-card">
+        <pre
+            class="code-block"><code class="language-bash">{% raw %}{{ colors.&lt;name&gt;.&lt;mode&gt;.&lt;format&gt;}}{% endraw %}</code></pre>
+    </md-card>
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{% raw %}{{ colors.primary.default.hex }}{% endraw %}</code></pre>
+    </md-card>
+
+    <br>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>primary</code></td>
+                    <td>Main brand color</td>
+                </tr>
+                <tr>
+                    <td><code>on_primary</code></td>
+                    <td>Text/Icons on top of primary</td>
+                </tr>
+                <tr>
+                    <td><code>primary_container</code></td>
+                    <td>Subtle background for primary elements</td>
+                </tr>
+                <tr>
+                    <td><code>on_primary_container</code></td>
+                    <td>Text on top of primary container</td>
+                </tr>
+                <tr>
+                    <td><code>inverse_primary</code></td>
+                    <td>Primary color for opposite theme</td>
+                </tr>
+                <tr>
+                    <td><code>secondary</code></td>
+                    <td>Less prominent accent color</td>
+                </tr>
+                <tr>
+                    <td><code>on_secondary</code></td>
+                    <td>Text/Icons on top of secondary</td>
+                </tr>
+                <tr>
+                    <td><code>secondary_container</code></td>
+                    <td>Subtle background for secondary elements</td>
+                </tr>
+                <tr>
+                    <td><code>on_secondary_container</code></td>
+                    <td>Text on top of secondary container</td>
+                </tr>
+                <tr>
+                    <td><code>tertiary</code></td>
+                    <td>Contrasting accent color for balance</td>
+                </tr>
+                <tr>
+                    <td><code>on_tertiary</code></td>
+                    <td>Text/Icons on top of tertiary</td>
+                </tr>
+                <tr>
+                    <td><code>tertiary_container</code></td>
+                    <td>Subtle background for tertiary elements</td>
+                </tr>
+                <tr>
+                    <td><code>on_tertiary_container</code></td>
+                    <td>Text on top of tertiary container</td>
+                </tr>
+                <tr>
+                    <td><code>error</code></td>
+                    <td>Color used for errors/warnings</td>
+                </tr>
+                <tr>
+                    <td><code>on_error</code></td>
+                    <td>Text/Icons on top of error color</td>
+                </tr>
+                <tr>
+                    <td><code>surface</code></td>
+                    <td>Main background for components (cards, sheets)</td>
+                </tr>
+                <tr>
+                    <td><code>on_surface</code></td>
+                    <td>Primary text color on surfaces</td>
+                </tr>
+                <tr>
+                    <td><code>surface_variant</code></td>
+                    <td>Secondary background for components</td>
+                </tr>
+                <tr>
+                    <td><code>on_surface_variant</code></td>
+                    <td>Secondary text color on surfaces</td>
+                </tr>
+                <tr>
+                    <td><code>outline</code></td>
+                    <td>Color for borders and dividers</td>
+                </tr>
+                <tr>
+                    <td><code>outline_variant</code></td>
+                    <td>Subtle divider/border color</td>
+                </tr>
+                <tr>
+                    <td><code>background</code></td>
+                    <td>The absolute background of the app/screen</td>
+                </tr>
+                <tr>
+                    <td><code>on_background</code></td>
+                    <td>Text on the main background</td>
+                </tr>
+                <tr>
+                    <td><code>shadow</code></td>
+                    <td>Color used for elevation shadows</td>
+                </tr>
+                <tr>
+                    <td><code>scrim</code></td>
+                    <td>Overlay color for modal backdrops</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Base16</h3>
+
+    <p><a href="https://github.com/chriskempson/base16/blob/main/styling.md" target="_blank"
+            rel="noopener noreferrer">Base16</a> is a framework for creating consistent, syntax-highlighting color
+        themes across various applications
+        (terminal, editor, shell) using a standardized palette of 16 colors. It consists of 8 shades (for
+        background/foreground) and 8 accent colors, ensuring high contrast, readability, and a unified look across
+        different software.</p>
+
+    <p><strong>Usage:</strong></p>
+    <md-card class="code-card">
+        <pre
+            class="code-block"><code class="language-bash">{% raw %}{{ base16.&lt;name&gt;.&lt;mode&gt;.&lt;format&gt;}}{% endraw %}</code></pre>
+    </md-card>
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{% raw %}{{ base16.base00.default.hex }}{% endraw %}</code></pre>
+    </md-card>
+
+    <br>
+
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>base00</code></td>
+                    <td>Default Background</td>
+                </tr>
+                <tr>
+                    <td><code>base01</code></td>
+                    <td>Lighter Background (Status bars)</td>
+                </tr>
+                <tr>
+                    <td><code>base02</code></td>
+                    <td>Selection Background</td>
+                </tr>
+                <tr>
+                    <td><code>base03</code></td>
+                    <td>Comments, Invisibles</td>
+                </tr>
+                <tr>
+                    <td><code>base04</code></td>
+                    <td>Dark Foreground (Used for status bars)</td>
+                </tr>
+                <tr>
+                    <td><code>base05</code></td>
+                    <td>Default Foreground, Caret, Delimiters</td>
+                </tr>
+                <tr>
+                    <td><code>base06</code></td>
+                    <td>Light Foreground</td>
+                </tr>
+                <tr>
+                    <td><code>base07</code></td>
+                    <td>Light Background</td>
+                </tr>
+                <tr>
+                    <td><code>base08</code></td>
+                    <td>Variables, XML Tags, Red</td>
+                </tr>
+                <tr>
+                    <td><code>base09</code></td>
+                    <td>Integers, Boolean, Constants, Orange</td>
+                </tr>
+                <tr>
+                    <td><code>base0a</code></td>
+                    <td>Classes, Strings, Functions, Yellow</td>
+                </tr>
+                <tr>
+                    <td><code>base0b</code></td>
+                    <td>Strings, Inherited Class, Green</td>
+                </tr>
+                <tr>
+                    <td><code>base0c</code></td>
+                    <td>Support, Regex, Escape Characters, Cyan</td>
+                </tr>
+                <tr>
+                    <td><code>base0d</code></td>
+                    <td>Functions, Methods, Attribute IDs, Blue</td>
+                </tr>
+                <tr>
+                    <td><code>base0e</code></td>
+                    <td>Keywords, Storage, Selector, Magenta</td>
+                </tr>
+                <tr>
+                    <td><code>base0f</code></td>
+                    <td>Deprecated, Opening/Closing Embedded Tags, Brown</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>Variables</h3>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>is_dark_mode</code></td>
+                    <td>Is <code>true</code> if dark mode is enabled.</td>
+                </tr>
+                <tr>
+                    <td><code>mode</code></td>
+                    <td><code>Dark</code> or <code>Light</code> depending on the mode.</td>
+                </tr>
+                <tr>
+                    <td><code>scheme</code></td>
+                    <td>Will resolve to the current scheme chosen.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <h2>Expressions</h2>
+    <p>Use <strong>dot notation</strong> to access nested values inside context objects.</p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{% raw %}{{ colors.primary.default.hex }}
+{{ palettes.error._99.hex }}
+{{ mode }}{% endraw %}</code></pre>
+    </md-card>
+
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{% raw %}{{ custom.red_color.hex }} -> #470228
+{{ custom.red_color.rgb }} -> rgb(255, 0, 0){% endraw %}</code></pre>
+    </md-card>
+
+    <p><strong>In JSON:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-json">{
+  "custom": {
+    "red_color": {
+      "color": "#470228"
+    }
+  }
+}</code></pre>
+    </md-card>
+
+
+    <h2>Includes</h2>
+
+    <p>Includes another template file, the name should be the template name you put in the config.</p>
+    <p>If you just want to use the included template inside of another one and don&#39;t want to write
+        it to a file,
+        you can just comment out the <code>output_path</code></p>
+    <p>If you set a custom scheme type for the main template, the included template will follow it.</p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-toml">[templates.includeme]
+input_path = "./include.txt"
+# The output path is optional if you just want to import the template
+# output_path = "./a/include.txt"
+</code></pre>
+    </md-card>
+
+    <p><strong>Example:</strong></p>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">&lt;* include "includeme" *&gt;</code></pre>
+    </md-card>
+
+
+
+    <h2>Conditionals</h2>
+    <p>Conditionals allow branching logic inside templates.</p>
+    <p>Negation with the <code>not</code> keyword is supported for any version above <code>v3.1.0</code></p>
+
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{% raw %}&lt;* if {{ condition }} *&gt;
+  ...content if true...
+&lt;* else *&gt;
+  ...content if false...
+&lt;* endif *&gt;{% endraw %}</code></pre>
+    </md-card>
+
+    <h3>If statement</h3>
+    <md-card class="code-card">
+        <pre class="code-block"><code class="language-bash">{% raw %}&lt;* if {{ is_dark_mode }} *&gt;
+  Dark Mode
+&lt;* else *&gt;
+  Light Mode
+&lt;* endif *&gt;{% endraw %}</code></pre>
+    </md-card>
+
+    <h3>If statement using negation</h3>
+
+    <pre class="code-block"><code class="language-bash">{% raw %}&lt;* if not {{ condition }} *&gt;
+  ...content if false...
+&lt;* else *&gt;
+  ...content if true...
+&lt;* endif *&gt;{% endraw %}</code></pre>
+    </md-card>
+
+    <h2>Loops</h3>
+        <h3 id="range-loop">Range Loop</h3>
+        <p>Iterates over a numeric range (inclusive).</p>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{% raw %}&lt;* for i in -10..10 *&gt;
+  {{ i }}
+&lt;* endfor *&gt;{% endraw %}</code></pre>
+        </md-card>
+
+        <h3>Key-Value Loop</h3>
+        <p>Iterates through maps or objects, exposing both key and value bindings.</p>
+
+        <h4>Listing all the MD3 colors</h4>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{% raw %}&lt;* for name, value in colors *&gt;
+  {{ name }}: {{ value.default.hex }};
+&lt;* endfor *&gt;{% endraw %}</code></pre>
+        </md-card>
+
+        <h2>Filters</h2>
+        <p>Filters transform or modify values, they are chained using the pipe symbol
+            (<code>|</code>).
+            They can support Expressions as arguments.</p>
+        <p><strong>Example:</strong></p>
+
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{% raw %}{{ colors.primary.default.hex | lighten: 20.0 | invert }}
+
+&lt;* for i in -10..10 *&gt;
+    actual: {{ i }} multiplied: {{ {{ i }} * 10 }} {{ colors.red.default.hex | lighten: {{i}} * 10 }}
+&lt;* endfor *&gt;{% endraw %}</code></pre>
+        </md-card>
+
+        <h2>Arithmetic and Nested Expressions</h2>
+        <p>Expressions can be nested or contain arithmetic operations.</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{% raw %}{{ {{ i }} * 10 }}
+{{ colors.red.default.hex | lighten: {{ i }} * 10 }}{% endraw %}</code></pre>
+        </md-card>
+
+        <h2>Escaping Output</h2>
+        <p>To render raw <code>{% raw %}{{ ... }}{% endraw %}</code> text without evaluating it:</p>
+        <md-card class="code-card">
+            <pre class="code-block"><code class="language-bash">{% raw %}\{{ colors.primary.default.hex }}{% endraw %}</code></pre>
+        </md-card>
+        <p>This will output literally <code>{% raw %}{{ colors.primary.default.hex }}{% endraw %}</code> in
+            the result.</p>
+
