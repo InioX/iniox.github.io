@@ -1,7 +1,7 @@
 <div class="filter-docs-container">
   {% for doc in matugen_filters %}
   <div class="filter-doc" data-category="{{ doc.category }}">
-    <h2>{{ doc.name }}</h2>
+    <h2 id="{{ doc.name | slugify }}">{{ doc.name }}</h2>
     <p>{{ doc.description }}</p>
 
     {% if doc.example %}

@@ -1,4 +1,4 @@
-    <h2>Basic Syntax</h2>
+    <h2 id="basic-syntax">Basic Syntax</h2>
     <div class="table-wrapper">
         <table>
             <thead>
@@ -28,14 +28,14 @@
         </table>
     </div>
 
-    <h2>Colors and variables</h2>
+    <h2 id="colors-and-variables">Colors and variables</h2>
 
     <p>You can use your own colors by <a href="https://iniox.github.io/#matugen/usage/importing-json" target="_blank"
             rel="noopener noreferrer">importing JSON</a> or using the <a
             href="https://iniox.github.io/#matugen/filters/to_color" target="_blank"
             rel="noopener noreferrer">to_color</a> filter.</p>
 
-    <h3>Color formats</h3>
+    <h3 id="color-formats">Color formats</h3>
     <div class="table-wrapper">
         <table>
             <thead>
@@ -135,7 +135,7 @@
         </table>
     </div>
 
-    <h3>Material Design 3</h3>
+    <h3 id="material-design-3">Material Design 3</h3>
 
     <p><a href="https://m3.material.io/styles/color/system/overview" target="_blank" rel="noopener noreferrer">Material
             Design 3 (MD3) colors</a>
@@ -267,7 +267,7 @@
         </table>
     </div>
 
-    <h3>Base16</h3>
+    <h3 id="base-16">Base16</h3>
 
     <p><a href="https://github.com/chriskempson/base16/blob/main/styling.md" target="_blank"
             rel="noopener noreferrer">Base16</a> is a framework for creating consistent, syntax-highlighting color
@@ -366,7 +366,7 @@
         </table>
     </div>
 
-    <h3>Variables</h3>
+    <h3 id="variables">Variables</h3>
     <div class="table-wrapper">
         <table>
             <thead>
@@ -393,7 +393,7 @@
     </div>
 
 
-    <h2>Expressions</h2>
+    <h2 id="expressions">Expressions</h2>
     <p>Use <strong>dot notation</strong> to access nested values inside context objects.</p>
     <md-card class="code-card">
         <pre class="code-block"><code class="language-bash">{% raw %}{{ colors.primary.default.hex }}
@@ -419,7 +419,7 @@
     </md-card>
 
 
-    <h2>Includes</h2>
+    <h2 id="includes">Includes</h2>
 
     <p>Includes another template file, the name should be the template name you put in the config.</p>
     <p>If you just want to use the included template inside of another one and don&#39;t want to write
@@ -442,7 +442,7 @@ input_path = "./include.txt"
 
 
 
-    <h2>Conditionals</h2>
+    <h2 id="conditionals">Conditionals</h2>
     <p>Conditionals allow branching logic inside templates.</p>
     <p>Negation with the <code>not</code> keyword is supported for any version above <code>v3.1.0</code></p>
 
@@ -454,7 +454,7 @@ input_path = "./include.txt"
 &lt;* endif *&gt;{% endraw %}</code></pre>
     </md-card>
 
-    <h3>If statement</h3>
+    <h3 id="if-statement">If statement</h3>
     <md-card class="code-card">
         <pre class="code-block"><code class="language-bash">{% raw %}&lt;* if {{ is_dark_mode }} *&gt;
   Dark Mode
@@ -463,7 +463,7 @@ input_path = "./include.txt"
 &lt;* endif *&gt;{% endraw %}</code></pre>
     </md-card>
 
-    <h3>If statement using negation</h3>
+    <h3 id="if-statement-using-negation">If statement using negation</h3>
 
     <pre class="code-block"><code class="language-bash">{% raw %}&lt;* if not {{ condition }} *&gt;
   ...content if false...
@@ -472,7 +472,7 @@ input_path = "./include.txt"
 &lt;* endif *&gt;{% endraw %}</code></pre>
     </md-card>
 
-    <h2>Loops</h3>
+    <h2 id="loops">Loops</h3>
         <h3 id="range-loop">Range Loop</h3>
         <p>Iterates over a numeric range (inclusive).</p>
 
@@ -482,17 +482,17 @@ input_path = "./include.txt"
 &lt;* endfor *&gt;{% endraw %}</code></pre>
         </md-card>
 
-        <h3>Key-Value Loop</h3>
+        <h3 id="key-value-loop">Key-Value Loop</h3>
         <p>Iterates through maps or objects, exposing both key and value bindings.</p>
 
-        <h4>Listing all the MD3 colors</h4>
+        <h4 id="listing-all-md3-colors">Listing all the MD3 colors</h4>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">{% raw %}&lt;* for name, value in colors *&gt;
   {{ name }}: {{ value.default.hex }};
 &lt;* endfor *&gt;{% endraw %}</code></pre>
         </md-card>
 
-        <h2>Filters</h2>
+        <h2 id="filters">Filters</h2>
         <p>Filters transform or modify values, they are chained using the pipe symbol
             (<code>|</code>).
             They can support Expressions as arguments.</p>
@@ -506,14 +506,14 @@ input_path = "./include.txt"
 &lt;* endfor *&gt;{% endraw %}</code></pre>
         </md-card>
 
-        <h2>Arithmetic and Nested Expressions</h2>
+        <h2 id="arithmetic-and-nested-expressions">Arithmetic and Nested Expressions</h2>
         <p>Expressions can be nested or contain arithmetic operations.</p>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">{% raw %}{{ {{ i }} * 10 }}
 {{ colors.red.default.hex | lighten: {{ i }} * 10 }}{% endraw %}</code></pre>
         </md-card>
 
-        <h2>Escaping Output</h2>
+        <h2 id="escaping-output">Escaping Output</h2>
         <p>To render raw <code>{% raw %}{{ ... }}{% endraw %}</code> text without evaluating it:</p>
         <md-card class="code-card">
             <pre class="code-block"><code class="language-bash">{% raw %}\{{ colors.primary.default.hex }}{% endraw %}</code></pre>
