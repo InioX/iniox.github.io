@@ -1,7 +1,7 @@
 {% set imgPath = project.image if project.image else "/images/blue.gif" %}
   
 <img
-    src="{{ imgPath }}"
+    src="{{ imgPath | url }}"
     alt="{{ project.name }} Header"
     class="header-image"
 />
