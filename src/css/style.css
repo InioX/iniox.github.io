@@ -1,3 +1,7 @@
+:root {
+  --code-font: "Fira Code", "Roboto Mono", monospace;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -72,7 +76,7 @@
 }
 
 .blog-container > div {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   min-width: 0;
 }
 
@@ -92,17 +96,72 @@
 .project-header {
   height: auto;
   width: auto;
-  max-width: 300px;
-  max-height: 150px;
+  max-width: 160px;
+  max-height: 80kpx;
   border-radius: 15px;
 }
 
+.project-button-group {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.project-info-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.project-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  margin: 0 !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--on_surface);
+}
+
+.project-desc {
+  margin: 0 !important;
+  color: var(--on_surface_variant);
+  font-size: 14px;
+}
+
 @media (max-width: 600px) {
+  .project-info-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 1200px) {
   .project-header {
     max-width: 100%;
     max-height: none;
     width: 100%;
     height: auto;
+  }
+
+  .blog-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .project-button-group .btn {
+    width: 100%;
   }
 }
 
@@ -165,7 +224,7 @@
 .btn-outlined {
   background-color: transparent;
   color: var(--primary);
-  border: 1px solid var(--outline);
+  border: 1px solid var(--outline_variant);
 }
 
 .btn-outlined:hover {

@@ -16,21 +16,29 @@ theme: "purple.css"
 <p>You can read more about the projects below</p>
 
 {% for p in collections.docProjects %}
-    <div class="project-container">
+    <div class="project-container blog-container">
         
-        {% if p.image %}
-            <img
-            src="{{ p.image }}"
-            alt="{{ p.name }} Header"
-            class="project-header"
-            />
-        {% endif %}
+        <div class="project-info-group">
+            {% if p.image %}
+                <div>
+                <img
+                    src="{{ p.image | url }}"
+                    alt="{{ p.name }} Header"
+                    class="project-header"
+                />
+                </div>
+            {% endif %}
 
-        <h2 data-no-copy>{{ p.name }}</h2>
+            <div class="project-text-group">
+                <h4 class="project-title">{{ p.name }}</h4>
+                <p class="project-desc">{{ p.desc }}</p>
+            </div>
+        </div>
 
-        <p>{{ p.desc }}</p>
-
-        <a href="{{ '/docs/' ~ (p.name | slugify) ~ '/' | url }}" class="btn btn-filled">Documentation</a>
+        <div class="project-button-group">
+            <a href="{{ '/docs/' ~ (p.name | slugify) ~ '/' | url }}" class="btn btn-filled">Documentation</a>
+            <a href="{{ p.link }}" class="btn btn-tonal">Repo</a>
+        </div>
       </div>
 {% endfor %}
 </div>

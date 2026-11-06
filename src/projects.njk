@@ -19,21 +19,23 @@ theme: "green.css"
         <p class="blog-description">{{ p.desc }}</p>
       </div>
 
-      {% if p.sections and p.sections.length > 0 %}
-      <a href="{{ '/docs/' ~ (p.name | slugify) ~ '/' | url }}" class="btn btn-filled">
-          <span class="btn-icon">
-            {% include "icons/navbar/docs.svg" %}
-          </span>
-          Docs
-        </a>
-      {% endif %}
+      <div class="project-button-group">
+        {% if p.sections and p.sections.length > 0 %}
+        <a href="{{ '/docs/' ~ (p.name | slugify) ~ '/' | url }}" class="btn btn-filled">
+            <span class="btn-icon">
+              {% include "icons/navbar/docs.svg" %}
+            </span>
+            Docs
+          </a>
+        {% endif %}
 
-      <a href="{{ p.link }}" class="btn btn-tonal">
-        <span class="btn-icon">
-          {% include "icons/github.svg" %}
-        </span>
-        Repo
-      </a>
+        <a href="{{ p.link }}" class="btn btn-tonal">
+          <span class="btn-icon">
+            {% include "icons/github.svg" %}
+          </span>
+          Repo
+        </a>
+      </div>
     </div>
 {% endfor %}
 

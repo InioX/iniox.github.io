@@ -43,7 +43,7 @@
 <nav class="navbar">
     <ul class="nav-links">
       <li class="nav-item">
-        <a href="/home/" {% if page.url.startsWith('/home/') %}class="active" aria-current="page"{% endif %}>
+        <a href="{{ '/home/' | url }}" {% if page.url.startsWith('/home/') %}class="active" aria-current="page"{% endif %}>
           <span class="nav-icon">
             {% include "icons/navbar/home.svg" %}
           </span>
@@ -52,7 +52,7 @@
         <hr/>
       </li>
       <li class="nav-item">
-        <a href="/docs/" {% if page.url.startsWith('/docs/') %}class="active" aria-current="page"{% endif %}>
+        <a href="{{ '/docs/' | url }}" {% if page.url.startsWith('/docs/') %}class="active" aria-current="page"{% endif %}>
           <span class="nav-icon">
             {% include "icons/navbar/docs.svg" %}
           </span>
@@ -61,7 +61,7 @@
         <hr/>
       </li>
       <li class="nav-item">
-        <a href="/blogs/" {% if page.url.startsWith('/blogs/') %}class="active" aria-current="page"{% endif %}>
+        <a href="{{ '/blogs/' | url }}" {% if page.url.startsWith('/blogs/') %}class="active" aria-current="page"{% endif %}>
           <span class="nav-icon">
             {% include "icons/navbar/blogs.svg" %}
           </span>
@@ -74,25 +74,54 @@
 
   <div class="header">
     <div class="header-left">
-      <a href="https://www.github.com/InioX/" class="btn btn-filled">
-        <span class="btn-icon">
-          {% include "icons/github.svg" %}
-        </span>
+      {% if page.url.startsWith('/docs/') and page.url != '/docs/' %}
+        {% set backPage = '/docs/' %}
 
-        Profile
-      </a>
+        <a href="{{ backPage | url }}" class="btn btn-filled">
+          <span class="btn-icon">
+            {% include "icons/back.svg" %}
+          </span>
+          Back
+        </a>
+      {% elif page.url.startsWith('/blogs/') and page.url != '/blogs/' %}
+        {% set backPage = '/blogs/' %}
 
-      <a href="/home/contact" class="btn btn-tonal">
-        <span class="btn-icon">
-          {% include "icons/contact.svg" %}
-        </span>
+        <a href="{{ backPage | url }}" class="btn btn-filled">
+          <span class="btn-icon">
+            {% include "icons/back.svg" %}
+          </span>
+          Back
+        </a>
+      {% else %}
+        <a href="https://www.github.com/InioX/" class="btn btn-filled">
+          <span class="btn-icon">
+            {% include "icons/github.svg" %}
+          </span>
+          Profile
+        </a>
+      {% endif %}
 
-        Contact
-      </a>
+      {% if project.discord %}
+        <a href="{{ project.discord }}" class="btn btn-tonal">
+          <span class="btn-icon">
+            {% include "icons/discord.svg" %}
+          </span>
+          Discord
+        </a>
+      {% else %}
+        <a href="/home/contact" class="btn btn-tonal">
+          <span class="btn-icon">
+            {% include "icons/contact.svg" %}
+          </span>
+          Contact
+        </a>
+      {% endif %}
     </div>
 
     <div class="header-right">
-      <a href="https://www.github.com/InioX/iniox.github.io" class="btn">
+      {% set repoLink = project.link or 'https://www.github.com/InioX/iniox.github.io' %}
+
+      <a href="{{ repoLink }}" class="btn">
         Open Repo
         <span class="btn-icon btn-icon-trailing">
           {% include "icons/open.svg" %}
