@@ -2,7 +2,7 @@
 layout: base.njk
 title: My time with NixOS
 desc: Describing my 3 year old NixOS journey.
-date: 2026-06-06
+date: "git Last Modified"
 tags: blog
 ---
 

@@ -11,7 +11,7 @@
             <tbody>
                 <tr>
                     <td><strong>Expression</strong> (Keyword)</td>
-                    <td><code>{{ expression }}</code></td>
+                    <td><code>{% raw %}{{ expression }}{% endraw %}</code></td>
                     <td>Evaluates and outputs a value.</td>
                 </tr>
                 <tr>
@@ -30,9 +30,9 @@
 
     <h2 id="colors-and-variables">Colors and variables</h2>
 
-    <p>You can use your own colors by <a href="https://iniox.github.io/#matugen/usage/importing-json" target="_blank"
+    <p>You can use your own colors by <a href="{{ '/docs/matugen/usage/#importing-json' | url }}" target="_blank"
             rel="noopener noreferrer">importing JSON</a> or using the <a
-            href="https://iniox.github.io/#matugen/filters/to_color" target="_blank"
+            href="{{ '/docs/matugen/filters/#to_color' | url }}" target="_blank"
             rel="noopener noreferrer">to_color</a> filter.</p>
 
     <h3 id="color-formats">Color formats</h3>

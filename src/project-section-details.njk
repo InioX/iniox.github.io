@@ -7,20 +7,15 @@ pagination:
 permalink: "docs/{{ item.projectSlug }}/{{ item.sectionId }}/"
 eleventyComputed:
   title: "{{ item.sectionTitle }} - {{ item.projectName }}"
+  theme: "{{ project.theme }}"
 ---
 
 <div class="page-content">
-
-<nav>
-  <a href="/docs/">← Back</a>
-</nav>
-
 <div class="centered">
+
 {% set project = item.project %}
   {% include "project-header.njk" %}
 </div>
-
-<hr/>
 
 <h1>{{ item.sectionTitle }}</h1>
 

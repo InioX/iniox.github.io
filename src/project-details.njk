@@ -1,17 +1,13 @@
 ---
 layout: base.njk
 pagination:
-  data: projects
+  data: collections.docProjects
   size: 1
   alias: project
 permalink: "docs/{{ project.name | slugify }}/"
 eleventyComputed:
   title: "{{ project.name }}"
 ---
-<nav>
-  <a href="/docs/">← Back</a>
-</nav>
-
 <div class="page-content">
 <div class="centered">
   {% include "project-header.njk" %}

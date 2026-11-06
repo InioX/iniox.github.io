@@ -2,13 +2,14 @@
 layout: base.njk
 title: Redirecting...
 permalink: "/"
+theme: "blue.css"
 ---
 
-<meta http-equiv="refresh" content="0; url=/home/">
+<meta http-equiv="refresh" content="0; url={{ '/home/' | url }}">
 <script>
-  window.location.href = "/home/";
+  window.location.href = "{{ '/home/' | url }}";
 </script>
 
 <div class="page-content centered">
-  <p>Redirecting you to <a href="/home/">/home/</a>...</p>
+  <p>Redirecting you to <a href="{{ '/home/' | url }}">/home/</a>...</p>
 </div>

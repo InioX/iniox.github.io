@@ -2,14 +2,13 @@
 layout: base.njk
 title: About
 permalink: "/home/about/"
+theme: "green.css"
 ---
 
 <div class="page-content">
 <div class="centered">
 
 {% include "index-header.njk" %}
-
-<hr/>
 
 <h1>About Me</h1>
 
@@ -38,7 +37,7 @@ permalink: "/home/about/"
 
 <h1>My languages and tools</h1>
 
-<table class="languages-table">
+<table class="table-wrapper">
   {% for l in coding_languages %}
     {# Start a new row every 2 items #}
     {% if loop.index0 % 2 == 0 %}
@@ -46,13 +45,16 @@ permalink: "/home/about/"
     {% endif %}
 
         <td>
-          <a href="{{ l.link }}" class="language-link">
-            <span class="language-icon">
+            <span class="table-icon">
               {% include "icons/languages/" + (l.name | slugify) + ".svg" %}
             </span>
             <br>
-            <span class="language-name">{{ l.name }}</span>
-          </a>
+            <a href="{{ l.link }}" class="btn">
+                {{ l.name }}
+                <span class="btn-icon btn-icon-trailing">
+                    {% include "icons/open.svg" %}
+                </span>
+            </a>
         </td>
 
     {% if loop.index0 % 2 != 0 or loop.last %}

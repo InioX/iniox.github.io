@@ -1,12 +1,13 @@
 ---
 layout: base.njk
 title: Blogs
+theme: "blue.css"
 ---
 <div class="page-content">
 <div class="centered">
 
 <img
-    src="/images/blue.gif"
+    src="{{ '/images/blue.gif' | url }}"
     alt="Blogs Header"
     class="header-image"
 />
@@ -15,8 +16,15 @@ title: Blogs
 <p>You can read some of my blogs below</p>
 
 {% for post in collections.blog %}
-    <a href="{{ post.url }}/"><h3 class="page-header-text">{{ post.data.title }}</h3></a>
-    <p>{{ post.data.desc }}</p>
+    <div class="project-container blog-container">
+      <div>
+        <h4 class="blog-title">{{ post.data.title }}</h4>
+        <p class="blog-description">{{ post.data.desc }}</p>
+        <p class="blog-date">{{ page.date.toUTCString() }}</p>
+      </div>
+
+      <a href="{{ post.url | url }}" class="btn btn-filled">Read</a>
+    </div>
 {% endfor %}
 
 </div>

@@ -1,0 +1,5 @@
+[config]
+
+[templates.css]
+input_path = './template.css'
+output_path = '../src/css/colorschemes/generated.css'

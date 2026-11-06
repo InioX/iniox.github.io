@@ -11,7 +11,7 @@
 
 <div class="button-row">
   {% for section in project.sections %}
-    <a href="/docs/{{ project.name | slugify }}/{{ section.id }}/" class="btn">
+    <a href="/docs/{{ project.name | slugify }}/{{ section.id }}/" class="btn btn-{{ section.type | default('outlined')}}">
       {{ section.title }}
     </a>
   {% endfor %}

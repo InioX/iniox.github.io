@@ -10,6 +10,10 @@
     run-eleventy = pkgs.writeShellScriptBin "run-eleventy" ''
       exec npx @11ty/eleventy --serve --port 5500
     '';
+
+    generate-css-colors = pkgs.writeShellScriptBin "generate-css-colors" ''
+      matugen image $1 --config ./matugen/config.toml
+    '';
   in {
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
@@ -21,6 +25,7 @@
         pkgs.nodejs_22
 
         run-eleventy
+        generate-css-colors
       ];
     };
   };

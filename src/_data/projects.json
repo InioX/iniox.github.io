@@ -1,13 +1,27 @@
 [
   {
+    "name": "Matugen 2",
+    "desc": "A cross-platform material you and base16 color generation tool",
+    "image": "/images/matugen.png",
+    "theme": "matugen.css",
+    "link": "https://github.com/InioX/matugen"
+  },
+  {
     "name": "Matugen",
     "desc": "A cross-platform material you and base16 color generation tool",
     "image": "/images/matugen.png",
+    "theme": "matugen.css",
+    "link": "https://github.com/InioX/matugen",
     "sections": [
       {
-        "id": "installation",
-        "title": "Installation",
-        "file": "matugen/installation.html"
+        "id": "getting-started",
+        "title": "Getting started",
+        "file": "matugen/getting-started.html"
+      },
+      {
+        "id": "templates",
+        "title": "Templates",
+        "file": "matugen/templates.html"
       },
       {
         "id": "usage",
@@ -15,9 +29,10 @@
         "file": "matugen/usage.html"
       },
       {
-        "id": "getting-started",
-        "title": "Getting started",
-        "file": "matugen/getting-started.html"
+        "id": "installation",
+        "title": "Installation",
+        "file": "matugen/installation.html",
+        "type": "filled"
       },
       {
         "id": "configuration",
@@ -28,11 +43,6 @@
         "id": "features",
         "title": "Features",
         "file": "matugen/features.html"
-      },
-      {
-        "id": "templates",
-        "title": "Templates",
-        "file": "matugen/templates.html"
       },
       {
         "id": "filters",

@@ -15,6 +15,13 @@
   />
   <title>{{ title }}</title>
   <link rel="stylesheet" href="/css/style.css">
+  {% set currentTheme = theme or item.theme or project.theme or "blue.css" %}
+  {#
+    {% if tags and "blog" in tags or page.url.startsWith('/blogs/') %}
+      {% set currentTheme = "blue.css" %}
+    {% endif %}
+  #}
+  <link rel="stylesheet" href="/css/colorschemes/{{ currentTheme | default('blue.css') }}">
   <script src="/js/script.js" defer></script>
 </head>
 <body>
@@ -49,6 +56,35 @@
       </li>
     </ul>
   </nav>
+
+  <div class="header">
+    <div class="header-left">
+      <a href="https://www.github.com/InioX/" class="btn btn-filled">
+        <span class="btn-icon">
+          {% include "icons/github.svg" %}
+        </span>
+
+        Profile
+      </a>
+
+      <a href="/home/contact" class="btn btn-tonal">
+        <span class="btn-icon">
+          {% include "icons/contact.svg" %}
+        </span>
+
+        Contact
+      </a>
+    </div>
+
+    <div class="header-right">
+      <a href="https://www.github.com/InioX/iniox.github.io" class="btn">
+        Open Repo
+        <span class="btn-icon btn-icon-trailing">
+          {% include "icons/open.svg" %}
+        </span>
+      </a>
+    </div>
+  </div>
 
   <main>{{ content | safe }}</main>
 </body>
