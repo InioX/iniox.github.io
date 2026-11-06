@@ -1,12 +1,5 @@
 [
   {
-    "name": "Matugen 2",
-    "desc": "A cross-platform material you and base16 color generation tool",
-    "image": "/images/matugen.png",
-    "theme": "matugen.css",
-    "link": "https://github.com/InioX/matugen"
-  },
-  {
     "name": "Matugen",
     "desc": "A cross-platform material you and base16 color generation tool",
     "image": "/images/matugen.png",
@@ -50,5 +43,15 @@
         "file": "matugen/filters.html"
       }
     ]
+  },
+  {
+    "name": "Website",
+    "desc": "A statically built website using 11ty, HTML, CSS and JavaScript. Follows the Material You (MD3) theming.",
+    "link": "https://github.com/InioX/website-new/"
+  },
+  {
+    "name": "Dotfiles",
+    "desc": "My personal dotfiles for NixOS, Arch, Windows, and Android. The NixOS dotfiles are split into hosts with shared modules and presets.",
+    "link": "https://github.com/InioX/dotfiles/"
   }
 ]
