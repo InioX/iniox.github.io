@@ -395,7 +395,7 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 1rem 2rem 0 2rem;
+  padding: 0.5rem 2rem 0 2rem;
   box-sizing: border-box;
 
   padding-bottom: 0px;
@@ -418,7 +418,7 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  padding: 10px;
+  padding: 2px;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
@@ -443,7 +443,7 @@ body {
     top: auto;
     bottom: 0;
 
-    padding: 0 2rem 1rem 2rem;
+    padding: 0 2rem 0.5rem 2rem;
   }
 
   body {
