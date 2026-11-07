@@ -36,8 +36,18 @@ theme: "purple.css"
         </div>
 
         <div class="project-button-group">
-            <a href="{{ '/docs/' ~ (p.name | slugify) ~ '/' | url }}" class="btn btn-filled">Documentation</a>
-            <a href="{{ p.link }}" class="btn btn-tonal">Repo</a>
+            <a href="{{ '/docs/' ~ (p.name | slugify) ~ '/' | url }}" class="btn btn-filled">
+                <span class="btn-icon">
+                    {% include "icons/navbar/docs.svg" %}
+                </span>
+                Docs
+            </a>
+            <a href="{{ p.link }}" class="btn btn-tonal">
+                <span class="btn-icon">
+                    {% include "icons/github.svg" %}
+                </span>
+                Repo
+            </a>
         </div>
       </div>
 {% endfor %}
