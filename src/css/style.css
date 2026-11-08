@@ -602,3 +602,14 @@ img {
   height: auto;
   display: block;
 }
+
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 0px;
+  }
+}
