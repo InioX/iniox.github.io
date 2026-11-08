@@ -1,9 +1,15 @@
 if (window.location.hash) {
-    let route = window.location.hash.substring(1);
+    const hash = window.location.hash.slice(1);
 
-    route = route.replace(/^\/+/, '');
-    route = route.replace(/^site\//, 'home/');
-    route = route.replace(/^matugen(\/|$)/, 'docs/matugen$1');
+    if (hash.includes('/') || hash.startsWith('matugen') || hash.startsWith('site')) {
+        const [routePath, ...anchorParts] = hash.split('#');
+        const anchor = anchorParts.length ? `#${anchorParts.join('#')}` : '';
 
-    window.location.replace('/' + route);
+        const cleanedRoute = routePath
+            .replace(/^\/+/, '')
+            .replace(/^site\//, 'home/')
+            .replace(/^matugen(\/|$)/, 'docs/matugen$1');
+
+        window.location.replace(`/${cleanedRoute}${anchor}`);
+    }
 }
