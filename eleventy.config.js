@@ -23,6 +23,7 @@ module.exports = function (eleventyConfig) {
           sectionId: section.id,
           sectionTitle: section.title,
           sectionFile: section.file,
+          link: project.link,
           theme: project.theme,
           project: project
         });

@@ -119,7 +119,7 @@
     </div>
 
     <div class="header-right">
-      {% set repoLink = project.link or 'https://www.github.com/InioX/iniox.github.io' %}
+      {% set repoLink = item.link or project.link or 'https://www.github.com/InioX/iniox.github.io' %}
 
       <a href="{{ repoLink }}" class="btn">
         Open Repo
