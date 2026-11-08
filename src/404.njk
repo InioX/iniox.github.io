@@ -1,0 +1,15 @@
+---
+layout: base.njk
+title: Page Not Found
+permalink: 404.html
+---
+
+<div class="centered">
+  <h1 class="page-header-text">404 - Page Not Found</h1>
+  <p>The page you are looking for doesn't exist or has been moved.
+  Try adding a <code>#</code> in front of the last part of the url if it's a header anchor.
+  Most old links should be redirected to the new ones automatically.
+  </p>
+  <p>Example: <code>{{ '/docs/matugen/installation/nixos' | url }}</code> -> <code>{{ '/docs/matugen/installation/#nixos' | url }}</code></p>
+  <a href="{{ '/' | url }}" class="btn btn-filled">Back to Home</a>
+</div>

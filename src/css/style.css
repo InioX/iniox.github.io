@@ -2,6 +2,12 @@
   --code-font: "Fira Code", "Roboto Mono", monospace;
 }
 
+.version-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 hr {
   border-color: var(--outline_variant);
 }

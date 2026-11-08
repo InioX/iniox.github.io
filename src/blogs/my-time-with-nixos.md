@@ -11,20 +11,20 @@ markdownTemplateEngine: njk
 
 My experience with NixOS first started in early 2023.
 I installed it on bare metal and I think that was the best choice that
-I made because a lot of people were suggesting
+I made. A lot of people were suggesting
 trying it out in a virtual machine at first to get a feel for it.
-In my opinion, i was forced to learn way faster and it paid off.
-At that point, i really started liking NixOS and its declarative configuration.
+In my opinion, I was forced to learn way faster and it paid off.
+At that point, I really started liking NixOS and its declarative configuration.
 
 I will be talking about my experience with NixOS, how I manage my dotfiles and more.
-Hopefully by the end you'll learn something that you didn't know yet, and
+Hopefully by the end you'll learn something that you didn't know yet,
 maybe my experience will help someone switch to NixOS and prevent some of the
 confusion or problems that I had.
 
 ## Zenyte library
 
 I decided to name the whole configuration `zenyte`,
-every app and service is a module.
+every app and service is a module with its own options.
 You can define your own options inside of these modules to
 conditionally do some stuff, which is very useful if you have multiple hosts.
 For example if you look at `modules/apps/discord.nix`
@@ -149,9 +149,42 @@ The only issue with it is that you need to provide an absolute path.
 
 I solved the absolute path issue by defining the snippet below in my `flake.nix`.
 There is a small problem with this even after solving the absolute path problem.
-You "lose" the purity and reproducibility. You don't need to think long for a solution,
-because using `git` to manage your dotfiles pretty much guarantees
+You "lose" the purity and reproducibility. You don't need to think long for a
+solution though, because using `git` to manage your dotfiles pretty much guarantees
 a history you can go back on if anything goes wrong.
+
+Another thing that can happen (and it did for me back then) is your flake not being
+in the right place inside of the file system.
+When I was reinstalling NixOS and I booted inside of the system,
+I noticed all of my dotfiles were missing. Then I realized that
+I didn't clone the dotfiles in the right place and fixed it.
+To prevent this in the future though, I put this in my configuration.
+
+<pre
+  class="code-block"
+><code class="language-nix">home.activation.createDevFolder = lib.hm.dag.entryAfter ["writeBoundary"] ''
+              mkdir -p $HOME/dev/
+              mkdir -p $HOME/games/
+              mkdir -p $HOME/docs/notes
+            '';
+
+            # Clone dotfiles repo inside ~/dev/dotfiles
+            home.activation.cloneDotfiles = lib.hm.dag.entryAfter ["writeBoundary"] ''
+              baseDir="/home/${default.username}/dev/dotfiles"
+              if [ ! -d "$baseDir" ]; then
+                ${pkgs.git}/bin/git clone https://github.com/InioX/dotfiles "$baseDir"
+              fi
+
+              # Clone matugen-themes
+              themesDir="/home/${default.username}/dev/matugen-themes"
+              if [ ! -d "$themesDir" ]; then
+                ${pkgs.git}/bin/git clone https://github.com/InioX/matugen-themes "$themesDir"
+              fi
+            '';
+</code></pre>
+
+With the snippet above I don't have to worry about this problem at all anymore.
+It also sets up basic directories that I use daily.
 
 <pre
   class="code-block"
@@ -232,7 +265,7 @@ One thing that I can't imagine not using is
 <a href="https://github.com/maralorn/nix-output-monitor" target="_blank" rel="noopener noreferrer">nom</a>.
 It makes my package builds and downloads much easier to go through when
 building my config. Trust me, it's really nice to use and looks so good.
-They also recently added progress bars which look even better.
+They also recently added progress bars which looks even better.
 
 ![nom-screenshot](https://raw.githubusercontent.com/maralorn/nix-output-monitor/main/example-screenshot.png)
 
