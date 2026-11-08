@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-ghpages": "npx @11ty/eleventy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,8 +20,5 @@
   "homepage": "https://github.com/InioX/site#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6"
-  },
-  "scripts": {
-    "build-ghpages": "npx @11ty/eleventy",
   }
 }
