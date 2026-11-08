@@ -19,5 +19,8 @@
   "homepage": "https://github.com/InioX/site#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6"
+  },
+  "scripts": {
+    "build-ghpages": "npx @11ty/eleventy",
   }
 }
