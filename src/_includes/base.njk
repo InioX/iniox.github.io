@@ -101,8 +101,10 @@
         </a>
       {% endif %}
 
-      {% if project.discord %}
-        <a href="{{ project.discord }}" class="btn btn-tonal">
+      {% if item.discord or project.discord %}
+        {% set discordLink = item.discord or project.discord %}
+        
+        <a href="{{ discordLink }}" class="btn btn-tonal">
           <span class="btn-icon">
             {% include "icons/discord.svg" %}
           </span>
